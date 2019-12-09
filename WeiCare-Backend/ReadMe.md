@@ -1,0 +1,1 @@
+To Start Server: $ DEBUG=weicare-backend:* npm start
