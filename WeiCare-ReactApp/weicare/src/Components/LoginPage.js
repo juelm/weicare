@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+var json = require('../users.json');
 
 /**
 
@@ -6,14 +7,35 @@ import React, { Component } from 'react';
 class LoginPage extends Component {
     constructor(props){
         super(props);
-        this.handleClick = this.handleClick.bind(this);
-        this.userName = 'Guest'
-        this.passWord = '';
+        this.changeUser = this.props.changeUser;
+        this.handleUserChange = this.handleUserChange.bind(this);
+        this.handlePasswordChange = this.handlePasswordChange.bind(this);
+
+        this.state = {
+            userName: 'NotGuest',
+            password: ''
+        }
+        
     }
 
   handleClick(){
-    console.log("Hello");
+    let user = (json[this.state.userName]);
+    console.log(user);
+    if(user){
+        console.log(user.password);
+        console.log(this.state.password);
+        if(json[this.state.userName].password === this.state.password){
+            this.changeUser(this.state.userName);
+        }
+    }
+  }
 
+  handleUserChange(event){
+    this.setState({userName: event.target.value})
+  }
+
+  handlePasswordChange(event){
+    this.setState({password: event.target.value})
   }
 
   getStyle = () => ({
@@ -23,15 +45,20 @@ class LoginPage extends Component {
 
   render() {
 
+    // let userNm = this.userName;
+    // console.log(userNm);
+    // console.log(json[userNm]);
+
     return (
       <div style={this.getStyle()}>
         <form>
-            UserName: <input type = 'text' id = 'user-name'></input>
+            UserName: <input type = 'text' id = 'user-name' onChange = {this.handleUserChange}></input>
             <br></br>
-            Password: <input type = 'password' id = 'password'></input>
+            Password: <input type = 'password' id = 'password'onChange = {this.handlePasswordChange}></input>
             <br></br>
         </form>
-        <button onClick = {this.handleClick}>Log In</button>
+        <button onClick = {()=>{this.handleClick(this.userName)}}>Log In</button>
+        <p></p>
       </div>
     );
   }
