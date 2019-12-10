@@ -14,9 +14,18 @@ import { Z_FIXED } from 'zlib';
  * The Assignments, Classes, and Teachers Pages.
  */
 class SplashPage extends Component {
-  state = {
-    selected: 1,
+  constructor(props){
+    super(props)
+
+    this.markSelected = this.markSelected.bind(this);
+
+    this.state = {
+      selected: 1,
+    }
   }
+  // state = {
+  //   selected: 1,
+  // }
 
   /**
    * This function defines basic styling for the individual details tabs.
@@ -38,9 +47,9 @@ class SplashPage extends Component {
     background: 'white',
     padding: '20px',
     border: '2px solid',
-    width: '80%',
+    width: '60%',
     minHeight: '800px',
-    margin: '175px 0px 20px 10%',
+    margin: '175px 18% 20px 20%',
     textAlign: 'center',
     clear: 'both',
     //position: 'fixed'
@@ -54,7 +63,8 @@ class SplashPage extends Component {
    *
    * @param {string} id - an id identifying which page is to be shown.
    */
-  markSelected = (id) => {
+
+  markSelected(id){
     console.log(id);
     if (id === "Home") {
       this.setState({
@@ -94,6 +104,8 @@ class SplashPage extends Component {
       title = 'Login Page';
       assignmentsColor = 'teal';
     }
+    console.log(selected);
+    
 
   //   <div style={this.getTabsStyle()}>
   //   <TeachersTab fontColor={teacherColor} markSelected={this.markSelected} />
