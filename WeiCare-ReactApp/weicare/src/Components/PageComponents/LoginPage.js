@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-var json = require('../users.json');
+var json = require('../../users.json');
 
 /**
 
@@ -40,14 +40,10 @@ class LoginPage extends Component {
 
   getStyle = () => ({
     margin: '100px auto 20px auto',
-    //clear:'both'
   });
 
   render() {
 
-    // let userNm = this.userName;
-    // console.log(userNm);
-    // console.log(json[userNm]);
 
     return (
       <div style={this.getStyle()}>

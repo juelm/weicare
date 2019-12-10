@@ -3,9 +3,6 @@ import React, { Component } from 'react';
 
 /**
  */
-
-
-
 class Button extends Component {
 
   constructor(props){
@@ -17,26 +14,25 @@ class Button extends Component {
   }
 
   getStyle = () => {
-    //const { fontColor } = this.props;
     return {
-      background: 'gray',
+      background: 'white',
       height: this.height,
       width: this.height,
       marginTop: 35,
-      //maginBottom: 20,
       marginLeft: 20,
       marginRight: this.props.rightMargin,
       fontSize: 20,
-      color: 'white',
+      color: 'tan',
+      fontWeight: 'bold',
       float: 'left',
-      display: 'inline-block'
+      display: 'inline-block',
+      borderRadius: '10px'
 
 
     };
   }
 
   render() {
-    //const { assignments } = this.props;
     let buttonID = this.id;
 
     return (

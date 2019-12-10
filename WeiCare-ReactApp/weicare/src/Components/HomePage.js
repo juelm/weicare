@@ -1,20 +1,13 @@
 import React, { Component } from 'react';
-// import ClassesTab from './ClassesTab';
-// import TeachersTab from './TeachersTab';
-// import AssignmentsTab from './AssignmentsTab';
-import TeachersPage from './TeachersPage';
-import ClassesPage from './ClassesPage';
-import LoginPage from './LoginPage.js';
-import Header from './Header';
+import TeachersPage from './PageComponents/TeachersPage.js';
+import ClassesPage from './PageComponents/ClassesPage.js';
+import LoginPage from './PageComponents/LoginPage.js';
+import Header from './NavigationComponents/Header.js';
 import { Z_FIXED } from 'zlib';
-import LhsBar from './LhsBar';
+import LhsBar from './NavigationComponents/LhsBar.js';
 
-/**
- * The DetailsPage component is the parent component of the Details Snapshot.
- * This component handles the navigation of it's three main sub components:
- * The Assignments, Classes, and Teachers Pages.
- */
-class SplashPage extends Component {
+
+class HomePage extends Component {
   constructor(props){
     super(props)
 
@@ -26,9 +19,6 @@ class SplashPage extends Component {
       user: 'guest'
     }
   }
-  // state = {
-  //   selected: 1,
-  // }
 
   /**
    * This function defines basic styling for the individual details tabs.
@@ -46,26 +36,15 @@ class SplashPage extends Component {
    * the Details Snapshot Page main view.
    */
   getStyle = () => ({
-    //background: '#e9e0c9',
     background: 'white',
     padding: '20px',
-    border: '2px solid',
+    //border: '2px solid',
     width: '60%',
     minHeight: '800px',
     margin: '175px 18% 20px 20%',
     textAlign: 'center',
     float: 'right'
-    //position: 'fixed'
-    //display: 'block',
   })
-
-  /**
-   * This function handles the navigation of the Details Snapshot.
-   * It controls which of the three details pages is currently
-   * being shown.
-   *
-   * @param {string} id - an id identifying which page is to be shown.
-   */
 
   changeUser(userName){
     this.setState({user: userName});
@@ -96,6 +75,7 @@ class SplashPage extends Component {
     let title = 'Details Page';
     const { selected } = this.state;
     let lhs;
+    let message;
 
     // Selects the Page to be displayed and that pages
     // tab gets assigned a teal color
@@ -113,20 +93,16 @@ class SplashPage extends Component {
       assignmentsColor = 'teal';
     }
 
-    if(this.state.user != 'guest') lhs = <LhsBar />;
+    if(this.state.user != 'guest') {
+        lhs = <LhsBar />;
+        message = "Welcome " + this.state.user;
+    }
     //console.log(this.state.user);
     console.log(lhs);
-    
-
-  //   <div style={this.getTabsStyle()}>
-  //   <TeachersTab fontColor={teacherColor} markSelected={this.markSelected} />
-  //   <ClassesTab fontColor={classesColor} markSelected={this.markSelected} />
-  //   <AssignmentsTab fontColor={assignmentsColor} markSelected={this.markSelected} />
-  // </div>
 
     return (
       <div>
-        <Header markSelected = {this.markSelected}/>
+        <Header markSelected = {this.markSelected} welcome = {message}/>
         {lhs}
         <div style={this.getStyle()}>
           <h1> {title} </h1>
@@ -140,4 +116,4 @@ class SplashPage extends Component {
 }
 
 
-export default SplashPage;
+export default HomePage;

@@ -17,9 +17,8 @@ class Header extends Component {
   }
 
   getStyle = () => ({
-    //margin: '0px  0px 0%',
+    margin: 'auto  0px',
     position: 'absolute',
-    top: 0,
     background: this.background,
     height: this.height,
     position: 'fixed',
@@ -27,24 +26,16 @@ class Header extends Component {
     left: 0,
     //display: 'block',
     width: '100%',
-    paddingBottom: '30px'
-  });
-  getInnerStyle = () =>({
-    // marginTop: '10px',
-    // marginBottom: '30px',
-    // paddingTop: '10px',
-    // paddingBottom: '30px'
-
+    paddingBottom: '40px',
+    
   });
 
   render() {
-    // <Button style = {this.getInnerStyle} height={this.height} markSelected = {this.props.markSelected} title="Home"/>
-    // <Button style = {this.getInnerStyle} height={this.height} markSelected = {this.props.markSelected} title="About Us"/>
-    // <Button style = {this.getInnerStyle} height={this.height} markSelected = {this.props.markSelected} title="Login"/>
-    //const { assignments } = this.props;
+
     return (
       <div style = {this.getStyle()}>
-        <h1 style = {{color: 'tan', fontSize: 70, display: 'inline-block', marginRight: '50%', marginLeft: '5%'}}>Wei Care</h1>
+        <p style = {{color: 'tan', fontWeight: 'bold', clear: 'both', paddingBottom: '0px'}}>{this.props.welcome}</p>
+        <h1 style = {{alignItems: 'center', color: 'tan', textAlign: 'center', fontSize: 70, display: 'inline-block', marginLeft: '5%'}}>Wei Care</h1>
         <NavBar markSelected = {this.props.markSelected}/>
       </div>
     )

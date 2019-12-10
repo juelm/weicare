@@ -2,15 +2,10 @@ import React, { Component } from 'react';
 import ClassesTab from './ClassesTab';
 import TeachersTab from './TeachersTab';
 import AssignmentsTab from './AssignmentsTab';
-import TeachersPage from './TeachersPage';
-import ClassesPage from './ClassesPage';
+// import TeachersPage from './TeachersPage';
+// import ClassesPage from './ClassesPage';
 
 
-/**
- * The DetailsPage component is the parent component of the Details Snapshot.
- * This component handles the navigation of it's three main sub components:
- * The Assignments, Classes, and Teachers Pages.
- */
 class LhsBar extends Component {
   constructor(props){
     super(props)
@@ -21,13 +16,7 @@ class LhsBar extends Component {
       selected: 1,
     }
   }
-  // state = {
-  //   selected: 1,
-  // }
 
-  /**
-   * This function defines basic styling for the individual details tabs.
-   */
   getTabsStyle = () => ({
     float: 'left',
     margin: '0px 0px 0px 0px ',
@@ -36,16 +25,7 @@ class LhsBar extends Component {
     
   })
 
-  /**
-   * This function defines the basic styling for
-   * the Details Snapshot Page main view.
-   */
   getStyle = () => ({
-    //background: '#e9e0c9',
-    //background: 'tan',
-    // padding: '20px',
-    //border: '2px solid',
-    //width: '60%',
     minHeight: '800px',
     marginTop: '175px',
     marginLeft: '20px',
@@ -55,14 +35,6 @@ class LhsBar extends Component {
     display:'inline-block',
     position: 'fixed'
   })
-
-  /**
-   * This function handles the navigation of the Details Snapshot.
-   * It controls which of the three details pages is currently
-   * being shown.
-   *
-   * @param {string} id - an id identifying which page is to be shown.
-   */
 
   markSelected(id){
     console.log(id);
@@ -96,15 +68,8 @@ class LhsBar extends Component {
     } else if (selected === 3) {
       assignmentsColor = 'teal';
     }
-    console.log(selected);
+    //console.log(selected);
     
-
-  //   <div style={this.getTabsStyle()}>
-  //   <TeachersTab fontColor={teacherColor} markSelected={this.markSelected} />
-  //   <ClassesTab fontColor={classesColor} markSelected={this.markSelected} />
-  //   <AssignmentsTab fontColor={assignmentsColor} markSelected={this.markSelected} />
-  // </div>
-
     return (
       <div style = {this.getStyle()}>
         <ClassesTab markSelected = {this.markSelected}/>
