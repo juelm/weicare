@@ -18,12 +18,14 @@ function App(props) {
       setAuthTokens(data);
     }
   
+    console.log("User Identity - " + authTokens);
     return (
       <AuthContext.Provider value={{ authTokens, setAuthTokens: setTokens }}>
         <Router>
           <div>
             <Header />
-            {authTokens && <SideBar />}
+            {authTokens === "Parent" && <SideBar />}
+            {authTokens === "Teacher" && <SideBar />}
             <Route exact path="/" component={HomePage} />
             <Route path="/about" component={About} />
             <Route path="/contact" component={Contact} />

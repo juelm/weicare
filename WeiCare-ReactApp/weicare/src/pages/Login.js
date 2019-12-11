@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import { Link, Redirect } from 'react-router-dom';
-import axios from "axios";
+// import axios from "axios";
 import { Card, Logo, Form, Input, Button, Error, } from '../components/AuthForm';
-import { useAuth, AuthContext } from "../context/auth";
+import { useAuth } from "../context/auth";
 var json = require('../users.json');
 
 function Login(props) {
@@ -17,32 +17,32 @@ function Login(props) {
         let user = (json[userName]);
         console.log(user);
         if(user){
-            console.log(user.password);
-            console.log(password);
-            console.log(AuthContext);
+            console.log("Proper password - " + user.password);
+            console.log("Entered Password - " + password);
             if(json[userName].password === password){
                 setAuthTokens(json[userName].userType);
                 setLoggedIn(true);
-                console.log(AuthContext);
             }
         }
       }
 
-    function postLogin() {
-        axios.post("https://www.somePlace.com/auth/login", {
-            userName,
-            password
-        }).then(result => {
-            if (result.status === 200) {
-                setAuthTokens(result.data);
-                setLoggedIn(true);
-            } else {
-                setIsError(true);
-            }
-        }).catch(e => {
-            setIsError(true);
-        });
-    }
+
+    // // Auth via axios
+    // function postLogin() {
+    //     axios.post("https://www.somePlace.com/auth/login", {
+    //         userName,
+    //         password
+    //     }).then(result => {
+    //         if (result.status === 200) {
+    //             setAuthTokens(result.data);
+    //             setLoggedIn(true);
+    //         } else {
+    //             setIsError(true);
+    //         }
+    //     }).catch(e => {
+    //         setIsError(true);
+    //     });
+    // }
 
     // if (isLoggedIn) {
     //     return <Redirect to={referer} />;
