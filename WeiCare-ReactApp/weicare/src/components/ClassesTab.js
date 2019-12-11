@@ -24,12 +24,10 @@ class ClassesTab extends Component {
 
   render() {
     return (
-      <Link to="/viewdaily">
         <div style={this.getStyle()}>
           <h3> Classes </h3>
           <img src="./baseline_school_black_48dp.png" />
         </div>
-      </Link>
     );
   }
 }

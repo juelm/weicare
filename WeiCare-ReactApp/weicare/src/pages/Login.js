@@ -26,24 +26,6 @@ function Login(props) {
         }
       }
 
-
-    // // Auth via axios
-    // function postLogin() {
-    //     axios.post("https://www.somePlace.com/auth/login", {
-    //         userName,
-    //         password
-    //     }).then(result => {
-    //         if (result.status === 200) {
-    //             setAuthTokens(result.data);
-    //             setLoggedIn(true);
-    //         } else {
-    //             setIsError(true);
-    //         }
-    //     }).catch(e => {
-    //         setIsError(true);
-    //     });
-    // }
-
     // if (isLoggedIn) {
     //     return <Redirect to={referer} />;
     // }
@@ -69,7 +51,6 @@ function Login(props) {
                     />
                     <Button onClick={handleClick}>Sign In</Button>
                 </Form>
-                <Link to="/signup">Don't have an account?</Link>
                 {isError && <Error>The username or password provided were incorrect!</Error>}
             </Card>
         </div>
