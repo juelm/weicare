@@ -36,7 +36,7 @@ function App() {
             <Route path="/about" component={About} />
             <Route path="/contact" component={Contact} />
             <Route path="/login" component={Login} />
-            <Route path="/logout" componenet={Logout} />
+            <PrivateRoute path="/logout" component={Logout} />
             <PrivateRoute path="/teacher/view-daily" component={TeacherViewDaily} />
             <PrivateRoute path="/teacher/add-daily" componenet={TeacherAddDaily} />
             <PrivateRoute path="/parent/view-daily" component={ParentViewDaily} />}
