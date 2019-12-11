@@ -1,0 +1,11 @@
+{
+    "John Doe": {
+        "userType":"Parent",
+        "password":"F@keNAme12"
+    },
+
+    "Jane Doe": {
+        "userType":"Teacher",
+        "password":"F@keNAme13"
+    }
+}
