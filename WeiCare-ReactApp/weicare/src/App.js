@@ -1,16 +1,23 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
-import HomePage from './Components/HomePage';
-
-function App() {
-  return (
-    <div>
-      <HomePage />
-    </div>
-
-   
-  );
-}
-
-export default App;
+function App(props) {
+    const [authTokens, setAuthTokens] = useState();
+  
+    const setTokens = (data) => {
+      localStorage.setItem("tokens", JSON.stringify(data));
+      setAuthTokens(data);
+    }
+  
+    return (
+      <AuthContext.Provider value={{ authTokens, setAuthTokens: setTokens }}>
+        <Router>
+          <div>
+            <Route exact path="/" component={HomePage} />
+            {/* <Route path="/login" component={Login} />
+            <Route path="/signup" component={Signup} /> 
+            <PrivateRoute path="/admin" component={Admin} />*/} 
+          </div>
+        </Router>
+      </AuthContext.Provider>
+    );
+  }
+  
+  export default App;
