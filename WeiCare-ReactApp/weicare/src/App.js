@@ -7,6 +7,7 @@ import About from "./pages/About";
 import Contact from "./pages/Contact";
 import Login from "./pages/Login";
 import ViewDaily from "./pages/teacherPage/ViewDaily";
+import ViewPictures from "./pages/ViewPictures";
 import PrivateRoute from "./PrivateRoute";
 import { AuthContext } from "./context/auth";
 import "./App.css";
@@ -32,6 +33,8 @@ function App(props) {
             <Route path="/contact" component={Contact} />
             <Route path="/login" component={Login} />
             <PrivateRoute path="/viewdaily" component={ViewDaily} />
+            <Route path="/viewpictures" component={ViewPictures} />
+
           </div>
         </Router>
       </AuthContext.Provider>

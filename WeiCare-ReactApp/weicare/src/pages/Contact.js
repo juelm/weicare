@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import {pageStyle} from '../styles.js';
 
 function Contact() {
     return (

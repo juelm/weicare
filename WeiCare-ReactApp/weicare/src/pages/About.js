@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import {pageStyle} from '../styles.js';
 
 class About extends Component {
 
@@ -10,7 +11,7 @@ class About extends Component {
   render() {
 
     return (
-      <div style={this.getStyle()}>
+      <div style={pageStyle()}>
         <p style = {{margin: '0px 20% 0px 20%'}}>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce fringilla a erat vel volutpat. Donec porta ligula felis, at scelerisque mi egestas sed. Aenean rhoncus, enim sit amet faucibus mattis, erat justo scelerisque mi, at faucibus odio enim in felis. Aliquam maximus tempor risus sed iaculis. Praesent finibus nec eros non pellentesque. In fringilla lectus non tellus suscipit sodales. Sed at libero id ipsum interdum facilisis. Suspendisse vitae arcu ex. Etiam vitae odio at tortor convallis sagittis quis vel quam. Sed facilisis quis risus vel gravida. Nulla a pulvinar velit. Sed quis pellentesque sem. Donec pharetra vel lectus at vehicula. Nam massa dui, porta non massa eu, sollicitudin vestibulum nulla.
 
         Praesent et dolor viverra, vehicula odio vitae, aliquam dui. Praesent ac eleifend odio. Nam feugiat sodales augue, id iaculis urna scelerisque id. Duis dapibus dapibus lacus, sed tristique est aliquam eu. Vivamus sit amet faucibus nisi. Cras dictum mauris nibh, eget vulputate est consequat eu. Duis tempus at est eget placerat. Praesent aliquam nibh non eros mollis bibendum. Aenean vel commodo erat. Vestibulum augue urna, rhoncus a viverra vel, tincidunt non lectus. Suspendisse sit amet porta erat. Fusce id tellus vitae odio volutpat volutpat nec ut neque. Sed ullamcorper maximus leo, faucibus dapibus enim laoreet id.
