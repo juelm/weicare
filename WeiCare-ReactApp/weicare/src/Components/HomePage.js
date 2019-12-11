@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import TeachersPage from './PageComponents/TeachersPage.js';
-import ClassesPage from './PageComponents/ClassesPage.js';
+import HomeComp from './PageComponents/HomeComp.js';
+import AboutPage from './PageComponents/AboutPage.js';
 import LoginPage from './PageComponents/LoginPage.js';
 import Header from './NavigationComponents/Header.js';
 import { Z_FIXED } from 'zlib';
@@ -51,7 +51,6 @@ class HomePage extends Component {
   }
 
   markSelected(id){
-    console.log(id);
     if (id === "Home") {
       this.setState({
         selected: 1,
@@ -68,41 +67,41 @@ class HomePage extends Component {
   }
 
   render() {
-    let teacherColor = 'gray';
-    let classesColor = 'gray';
-    let assignmentsColor = 'gray';
+    let homeColor = 'tan';
+    let classesColor = 'tan';
+    let assignmentsColor = 'tan';
     let pageSelected;
     let title = 'Details Page';
     const { selected } = this.state;
     let lhs;
     let message;
+    let loginMessage = "Login";
 
     // Selects the Page to be displayed and that pages
     // tab gets assigned a teal color
     if (selected === 1) {
-      pageSelected = <TeachersPage />;
-      title = 'Teachers Detail';
-      teacherColor = 'teal';
+      homeColor = 'teal';
+      pageSelected = <HomeComp />;
+      title = 'Home';
     } else if (selected === 2) {
-      pageSelected = <ClassesPage />;
-      title = 'Classes Detail';
-      classesColor = 'teal';
+      pageSelected = <AboutPage />;
+      title = 'About Us';
     } else if (selected === 3) {
-      pageSelected = <LoginPage changeUser = {this.changeUser}/>;
+      pageSelected = <LoginPage changeUser = {this.changeUser} />;
       title = 'Login Page';
-      assignmentsColor = 'teal';
     }
 
     if(this.state.user != 'guest') {
         lhs = <LhsBar />;
         message = "Welcome " + this.state.user;
+        loginMessage = "Logout";
     }
     //console.log(this.state.user);
     console.log(lhs);
 
     return (
       <div>
-        <Header markSelected = {this.markSelected} welcome = {message}/>
+        <Header markSelected = {this.markSelected} welcome = {message} loginMessage = {loginMessage} />
         {lhs}
         <div style={this.getStyle()}>
           <h1> {title} </h1>

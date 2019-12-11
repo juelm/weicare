@@ -34,9 +34,9 @@ class Header extends Component {
 
     return (
       <div style = {this.getStyle()}>
-        <p style = {{color: 'tan', fontWeight: 'bold', clear: 'both', paddingBottom: '0px'}}>{this.props.welcome}</p>
-        <h1 style = {{alignItems: 'center', color: 'tan', textAlign: 'center', fontSize: 70, display: 'inline-block', marginLeft: '5%'}}>Wei Care</h1>
-        <NavBar markSelected = {this.props.markSelected}/>
+        <p style = {{position: 'absolute', top: '10px',color: 'tan', fontWeight: 'bold', clear: 'both', paddingBottom: '0px'}}>{this.props.welcome}</p>
+        <h1 style = {{position: 'relative', top: '-1px', left: '5%', color: 'tan', textAlign: 'center', fontSize: 70, display: 'inline-block', marginLeft: '5%'}}>Wei Care</h1>
+        <NavBar markSelected = {this.props.markSelected} loginMessage = {this.props.loginMessage}/>
       </div>
     )
     

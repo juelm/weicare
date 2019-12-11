@@ -25,7 +25,7 @@ class NavBar extends Component {
       <div style = {this.getStyle()}>
         <Button rightMargin = '0px' height={this.height} markSelected = {this.props.markSelected} title="Home"/>
         <Button rightMargin = '0px' height={this.height} markSelected = {this.props.markSelected} title="About Us"/>
-        <Button rightMargin = '30px' height={this.height} markSelected = {this.props.markSelected} title="Login"/>
+        <Button rightMargin = '30px' height={this.height} markSelected = {this.props.markSelected} title={this.props.loginMessage}/>
       </div>
     )
     
