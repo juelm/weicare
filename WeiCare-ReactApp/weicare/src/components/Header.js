@@ -1,45 +1,48 @@
-import React, { Component } from 'react';
-import NavBar from './NavBar.js';
+import React from "react";
+import { makeStyles } from "@material-ui/core/styles";
+import AppBar from "@material-ui/core/AppBar";
+import Toolbar from "@material-ui/core/Toolbar";
+import Typography from "@material-ui/core/Typography";
+import Button from "@material-ui/core/Button";
+import { Link } from "react-router-dom";
 
-
-/**
- * The Assignment List is the parent component of
- * Assignment.  The Assignment list creates an unordered
- * list of all assignments associated with a class
- * and maps each assignment to an Assignment component.
- */
-class Header extends Component {
-  constructor(){
-    super()
-    this.height = 100;
-    this.background = '#778899'
+const useStyles = makeStyles(theme => ({
+  root: {
+    flexGrow: 1
+  },
+  menuButton: {
+    marginRight: theme.spacing(2)
+  },
+  title: {
+    flexGrow: 1
   }
+}));
 
-  getStyle = () => ({
-    margin: 'auto  0px',
-    position: 'absolute',
-    background: this.background,
-    height: this.height,
-    position: 'fixed',
-    top: 0,
-    left: 0,
-    //display: 'block',
-    width: '100%',
-    paddingBottom: '40px',
-    
-  });
+export default function Header() {
+  const classes = useStyles();
 
-  render() {
-
-    return (
-      <div style = {this.getStyle()}>
-        <p style = {{position: 'absolute', top: '10px',color: 'tan', fontWeight: 'bold', clear: 'both', paddingBottom: '0px'}}>{this.props.welcome}</p>
-        <h1 style = {{position: 'relative', top: '-1px', left: '5%', color: 'tan', textAlign: 'center', fontSize: 70, display: 'inline-block', marginLeft: '5%'}}>Wei Care</h1>
-        <NavBar markSelected = {this.props.markSelected} loginMessage = {this.props.loginMessage}/>
-      </div>
-    )
-    
-  }
+  return (
+    <div className={classes.root}>
+      <AppBar position="static">
+        <Toolbar>
+          <Typography variant="h6" className={classes.title}>
+            WeiCare
+          </Typography>
+          <Link to="/">
+            <Button color="inherit">Home</Button>
+          </Link>
+          <Link to="/about">
+            <Button color="inherit">About</Button>
+          </Link>
+          <Link to="/contact">
+            <Button color="inherit">Contact</Button>
+          </Link>
+          <Link to="/login">
+            <Button color="inherit">Login</Button>
+          </Link>
+        </Toolbar>
+      </AppBar>
+    </div>
+  );
 }
 
-export default Header;
