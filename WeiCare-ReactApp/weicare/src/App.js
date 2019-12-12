@@ -6,6 +6,7 @@ import ParentNav from "./components/ParentNav.js";
 import HomePage from "./pages/HomePage";
 import About from "./pages/About";
 import Contact from "./pages/Contact";
+import ViewPictures from "./pages/ViewPictures";
 import Login from "./pages/Login";
 import Logout from "./pages/Logout";
 import TeacherViewDaily from "./pages/teacherPage/TeacherViewDaily";
@@ -41,6 +42,7 @@ function App() {
             <Route path="/about" component={About} />
             <Route path="/contact" component={Contact} />
             <Route path="/login" component={Login} />
+            <Route path="/viewpictures" component={ViewPictures} />
             <PrivateRoute path="/logout" component={Logout} />
             <PrivateRoute path="/teacher/view-daily" component={TeacherViewDaily} />
             <PrivateRoute path="/teacher/add-daily" componenet={TeacherAddDaily} />
