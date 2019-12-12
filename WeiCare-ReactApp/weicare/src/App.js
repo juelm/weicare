@@ -13,6 +13,8 @@ import TeacherViewDaily from "./pages/teacherPage/TeacherViewDaily";
 import TeacherAddDaily from "./pages/teacherPage/TeacherAddDaily";
 import ParentViewDaily from "./pages/parentPage/ParentViewDaily";
 import PrivateRoute from "./PrivateRoute";
+import TeacherRoute from "./TeacherRoute";
+import ParentRoute from "./ParentRoute";
 import { AuthContext } from "./context/auth";
 import "./App.css";
 
@@ -61,9 +63,9 @@ function App() {
           <Route path="/login" component={Login} />
           <Route path="/viewpictures" component={ViewPictures} />
           <PrivateRoute path="/logout" component={Logout} />
-          <PrivateRoute path="/teacher/view-daily" component={TeacherViewDaily} />
-          <PrivateRoute path="/teacher/add-daily" component={TeacherAddDaily} />
-          <PrivateRoute path="/parent/view-daily" component={ParentViewDaily} />}
+          <TeacherRoute path="/teacher/view-daily" component={TeacherViewDaily} />
+          <TeacherRoute path="/teacher/add-daily" component={TeacherAddDaily} />
+          <ParentRoute path="/parent/view-daily" component={ParentViewDaily} />}
           </div>
       </Router>
     </AuthContext.Provider>
