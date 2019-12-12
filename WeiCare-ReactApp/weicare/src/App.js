@@ -18,17 +18,22 @@ import "./App.css";
 import { longStackSupport } from "q";
 
 function App() {
-    const [authTokens, setAuthTokens] = useState();
+    const [authTokens, setAuthTokens] = useState(setStorageToTokens());
   
     const setTokens = (data) => {
       console.log("this is in setTokens - " + data);
-      localStorage.setItem("tokens", JSON.stringify(data));
+      console.log(localStorage.getItem("tokens"))
+      localStorage.setItem("tokens", data);
       setAuthTokens(data);
     }
 
-    // if (localStorage.getItem("tokens") !== null) {
-    //   setAuthTokens(localStorage.getItem("tokens"));
-    // }
+    function setStorageToTokens() {
+      if (localStorage.getItem("tokens") === "null") {
+        return null;
+      } else {
+        return localStorage.getItem("tokens");
+      }
+    }
   
     console.log("User Identity - " + authTokens);
     return (

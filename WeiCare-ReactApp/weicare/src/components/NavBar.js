@@ -19,6 +19,7 @@ function NavBar() {
     <div style={divStyle}>
       <Button rightMargin='0px' height={height} destination="/" title="Home" />
       <Button rightMargin='0px' height={height} destination="/about" title="About Us" />
+      {console.log("This is in NavBar - " + typeof(authTokens))}
       {authTokens ?
         <Button rightMargin='30px' height={height} destination="/logout" title="Logout" />
         :
