@@ -9,6 +9,7 @@ import Login from "./pages/Login";
 import ViewDaily from "./pages/teacherPage/ViewDaily";
 import PrivateRoute from "./PrivateRoute";
 import { AuthContext } from "./context/auth";
+import TeacherPage from "./pages/teacherPage/TeacherPage"; 
 import "./App.css";
 
 function App(props) {
@@ -26,7 +27,7 @@ function App(props) {
           <div>
             <Header />
             {authTokens === "Parent" && <SideBar />}
-            {authTokens === "Teacher" && <SideBar />}
+            {authTokens === "Teacher" && <TeacherPage />}
             <Route exact path="/" component={HomePage} />
             <Route path="/about" component={About} />
             <Route path="/contact" component={Contact} />
