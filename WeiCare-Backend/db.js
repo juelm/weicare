@@ -1,5 +1,5 @@
 var db = require('mysql');
-var dbCred = require('./db_creds.json');
+var dbCred = require('./dbCreds.json');
 var connection = db.createConnection(dbCred);
 
 module.exports = connection;
