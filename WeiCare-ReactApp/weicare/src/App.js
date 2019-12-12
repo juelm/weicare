@@ -20,9 +20,14 @@ function App() {
     const [authTokens, setAuthTokens] = useState();
   
     const setTokens = (data) => {
+      console.log("this is in setTokens - " + data);
       localStorage.setItem("tokens", JSON.stringify(data));
       setAuthTokens(data);
     }
+
+    // if (localStorage.getItem("tokens") !== null) {
+    //   setAuthTokens(localStorage.getItem("tokens"));
+    // }
   
     console.log("User Identity - " + authTokens);
     return (
