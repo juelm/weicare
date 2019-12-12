@@ -4,7 +4,7 @@ import TeachersTab from './TeachersTab';
 import AssignmentsTab from './AssignmentsTab';
 
 
-class LhsBar extends Component {
+class TeacherNav extends Component {
   constructor(props){
     super(props)
 
@@ -79,4 +79,4 @@ class LhsBar extends Component {
 }
 
 
-export default LhsBar;
+export default TeacherNav;
