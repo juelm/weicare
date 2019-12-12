@@ -3,6 +3,7 @@ import { Card, Form, Input, Button } from '../../components/AuthForm';
 
 
 function TeacherViewDaily() {
+
     return (
         <div style={{ margin: '175px 40%' }}>
             <Card>

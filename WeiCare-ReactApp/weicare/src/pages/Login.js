@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { Redirect } from "react-router-dom";
 import { Card, Form, Input, Button, Error, } from '../components/AuthForm';
 import { useAuth } from "../context/auth";
+import getDaylies from '../modules/getDayliesMod';
 var json = require('../users.json');
 
 function Login(props) {
@@ -11,6 +12,7 @@ function Login(props) {
     const [password, setPassword] = useState("");
     const { setAuthTokens } = useAuth();
     const referer = props.location.state ? props.location.state.referer : "/";
+
 
     function handleClick(){
         let user = (json[userName]);
