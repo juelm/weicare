@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import { Link } from "react-router-dom";
 
 /**
  * This component comprises the Classes tab in the detailsSnapshot
@@ -26,7 +25,7 @@ class ClassesTab extends Component {
     return (
         <div style={this.getStyle()}>
           <h3> Classes </h3>
-          <img src="./baseline_school_black_48dp.png" />
+          <img src="./baseline_school_black_48dp.png" alt="classes" />
         </div>
     );
   }

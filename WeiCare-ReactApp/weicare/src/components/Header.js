@@ -17,7 +17,6 @@ class Header extends Component {
 
   getStyle = () => ({
     margin: 'auto  0px',
-    position: 'absolute',
     background: this.background,
     height: this.height,
     position: 'fixed',

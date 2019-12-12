@@ -1,7 +1,5 @@
 import React, { Component } from 'react';
 import { Link } from "react-router-dom";
-import { useAuth } from "../context/auth";
-
 
 /**
  */
@@ -35,8 +33,6 @@ class Button extends Component {
     }
 
     render() {
-        let buttonID = this.id;
-
         return (
             <Link to={this.props.destination}>
                 <button name={this.props.title} style={this.getStyle()}>

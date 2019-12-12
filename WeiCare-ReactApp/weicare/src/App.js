@@ -13,49 +13,63 @@ import TeacherViewDaily from "./pages/teacherPage/TeacherViewDaily";
 import TeacherAddDaily from "./pages/teacherPage/TeacherAddDaily";
 import ParentViewDaily from "./pages/parentPage/ParentViewDaily";
 import PrivateRoute from "./PrivateRoute";
+import TeacherRoute from "./TeacherRoute";
+import ParentRoute from "./ParentRoute";
 import { AuthContext } from "./context/auth";
 import "./App.css";
-import { longStackSupport } from "q";
 
 function App() {
-    const [authTokens, setAuthTokens] = useState(setStorageToTokens());
-  
-    const setTokens = (data) => {
-      console.log("this is in setTokens - " + data);
-      console.log(localStorage.getItem("tokens"))
-      localStorage.setItem("tokens", data);
-      setAuthTokens(data);
+  const [authTokens, setAuthTokens] = useState(setStorageToTokens());
+
+  const setTokens = (data) => {
+    console.log(localStorage.getItem("tokens"));
+    console.log(localStorage.getItem("username"));
+
+    for (let key in data) {
+      localStorage.setItem(key, data[key]);
+    }
+    if (data === null) {
+      setAuthTokens(null)
+      localStorage.setItem("tokens", null);
+      localStorage.setItem("username", null);
+    } else {
+      setAuthTokens(data["tokens"])
+      localStorage.setItem("tokens", data["tokens"]);
+      localStorage.setItem("username", data["username"]);
     }
 
-    function setStorageToTokens() {
-      if (localStorage.getItem("tokens") === "null") {
-        return null;
-      } else {
-        return localStorage.getItem("tokens");
-      }
-    }
-  
-    console.log("User Identity - " + authTokens);
-    return (
-      <AuthContext.Provider value={{ authTokens, setAuthTokens: setTokens }}>
-        <Router>
-          <div>
-            <Header />
-            {authTokens === "Parent" && <ParentNav />}
-            {authTokens === "Teacher" && <TeacherNav />}
-            <Route exact path="/" component={HomePage} />
-            <Route path="/about" component={About} />
-            <Route path="/contact" component={Contact} />
-            <Route path="/login" component={Login} />
-            <Route path="/viewpictures" component={ViewPictures} />
-            <PrivateRoute path="/logout" component={Logout} />
-            <PrivateRoute path="/teacher/view-daily" component={TeacherViewDaily} />
-            <PrivateRoute path="/teacher/add-daily" component={TeacherAddDaily} />
-            <PrivateRoute path="/parent/view-daily" component={ParentViewDaily} />}
-          </div>
-        </Router>
-      </AuthContext.Provider>
-    );
+    console.log("authToken: " + authTokens + "  localstorage: " + localStorage.getItem("tokens"));
   }
-  
-  export default App;
+
+  function setStorageToTokens() {
+    if (localStorage.getItem("tokens") === "null") {
+      return null;
+    } else {
+      return localStorage.getItem("tokens");
+    }
+  }
+
+  console.log("User Identity - " + authTokens);
+  return (
+    <AuthContext.Provider value={{ authTokens, setAuthTokens: setTokens }}>
+      <Router>
+        <div>
+          <Header />
+          {authTokens === "Parent" && <ParentNav />}
+          {authTokens === "Teacher" && <TeacherNav />}
+          <Route exact path="/" component={HomePage} />
+          <Route path="/about" component={About} />
+          <Route path="/contact" component={Contact} />
+          <Route path="/login" component={Login} />
+          <Route path="/viewpictures" component={ViewPictures} />
+          <PrivateRoute path="/logout" component={Logout} />
+          <TeacherRoute path="/teacher/view-daily" component={TeacherViewDaily} />
+          <TeacherRoute path="/teacher/add-daily" component={TeacherAddDaily} />
+          <ParentRoute path="/parent/view-daily" component={ParentViewDaily} />}
+          </div>
+      </Router>
+    </AuthContext.Provider>
+  );
+}
+
+export default App;

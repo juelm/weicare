@@ -1,7 +1,5 @@
 import React, { Component } from 'react';
 import {pageStyle} from '../styles.js';
-import PhotoPane from './PhotoPane.js'
-
 
 /**
 

@@ -1,7 +1,6 @@
 import React, { useState } from "react";
-import { Link, Redirect } from 'react-router-dom';
-// import axios from "axios";
-import { Card, Logo, Form, Input, Button, Error, } from '../components/AuthForm';
+import { Redirect } from "react-router-dom";
+import { Card, Form, Input, Button, Error, } from '../components/AuthForm';
 import { useAuth } from "../context/auth";
 var json = require('../users.json');
 
@@ -11,7 +10,7 @@ function Login(props) {
     const [userName, setUserName] = useState("");
     const [password, setPassword] = useState("");
     const { setAuthTokens } = useAuth();
-    //const referer = props.location.state.referer || '/';
+    const referer = props.location.state ? props.location.state.referer : "/";
 
     function handleClick(){
         let user = (json[userName]);
@@ -20,15 +19,20 @@ function Login(props) {
             console.log("Proper password - " + user.password);
             console.log("Entered Password - " + password);
             if(json[userName].password === password){
-                setAuthTokens(json[userName].userType);
+                setAuthTokens({
+                    "tokens": json[userName].userType,
+                    "username": userName
+                });
                 setLoggedIn(true);
+            } else {
+                setIsError(true);
             }
         }
       }
 
-    // if (isLoggedIn) {
-    //     return <Redirect to={referer} />;
-    // }
+    if (isLoggedIn) {
+        return <Redirect to={referer} />;
+    }
 
     return (
         <div style={{ margin: '175px 40%' }}>
