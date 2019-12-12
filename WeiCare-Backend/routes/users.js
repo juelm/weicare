@@ -1,8 +1,8 @@
 var express = require('express');
 var router = express.Router();
 var json = require('./WeiCareDB.json');
+var db = require('../db');
 
-console.log(json["John Doe"]);
 
 
 /* GET users listing. */
@@ -12,6 +12,7 @@ router.get('/', function(req, res, next) {
 
 router.get('/:userName', function(req, res, next) {
   //let data = json[req.params.userName]
+
   res.send(json[req.params.userName]);
 });
 

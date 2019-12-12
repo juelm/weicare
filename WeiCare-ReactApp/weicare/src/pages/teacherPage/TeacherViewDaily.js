@@ -3,6 +3,7 @@ import { Card, Logo, Form, Input, Button, Error, } from '../../components/AuthFo
 
 
 function TeacherViewDaily() {
+
     return (
         <div style={{ margin: '175px 40%' }}>
             <Card>
