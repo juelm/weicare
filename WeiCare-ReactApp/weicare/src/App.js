@@ -50,7 +50,7 @@ function App() {
             <Route path="/viewpictures" component={ViewPictures} />
             <PrivateRoute path="/logout" component={Logout} />
             <PrivateRoute path="/teacher/view-daily" component={TeacherViewDaily} />
-            <PrivateRoute path="/teacher/add-daily" componenet={TeacherAddDaily} />
+            <PrivateRoute path="/teacher/add-daily" component={TeacherAddDaily} />
             <PrivateRoute path="/parent/view-daily" component={ParentViewDaily} />}
           </div>
         </Router>
