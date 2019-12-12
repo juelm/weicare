@@ -1,5 +1,5 @@
 import React from "react";
-import { Card, Logo, Form, Input, Button, Error, } from '../../components/AuthForm';
+import { Card, Form, Input, Button } from '../../components/AuthForm';
 
 
 function ParentViewDaily() {
