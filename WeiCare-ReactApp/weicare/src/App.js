@@ -48,14 +48,20 @@ function App() {
     }
   }
 
+  function returnCorrectNavBar() {
+    if (authTokens === "Teacher") return <TeacherNav />
+    if (authTokens === "Parent") return <Header />
+  }
+
   console.log("User Identity - " + authTokens);
   return (
     <AuthContext.Provider value={{ authTokens, setAuthTokens: setTokens }}>
       <Router>
         <div>
-          <Header />
-          {authTokens === "Parent" && <ParentNav />}
-          {authTokens === "Teacher" && <TeacherNav />}
+          {authTokens ?
+            returnCorrectNavBar()
+            :
+            <Header />}
           <Route exact path="/" component={HomePage} />
           <Route path="/about" component={About} />
           <Route path="/contact" component={Contact} />
