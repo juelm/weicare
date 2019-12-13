@@ -1,8 +1,11 @@
 import React from "react";
 import ImageGallery from "react-image-gallery";
 
+
 class PhotoPane extends React.Component {
+
   render() {
+
     const images = [
       {
         original: "https://picsum.photos/id/1018/1000/600/",
@@ -18,7 +21,9 @@ class PhotoPane extends React.Component {
       }
     ];
 
-    return <ImageGallery items={images} />;
+    return (
+      <ImageGallery items={images} />
+    );
   }
 }
 

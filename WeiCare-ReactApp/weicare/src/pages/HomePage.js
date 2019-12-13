@@ -1,5 +1,5 @@
 import React from 'react';
-import PhonePane from './PhontoPane';
+import PhotoPane from './PhotoPane';
 import { pageStyle } from "./styles.js";
 import { makeStyles } from "@material-ui/core/styles";
 import Paper from "@material-ui/core/Paper";
@@ -23,7 +23,7 @@ export default function HomePage() {
   return (
     <>
       <div style={pageStyle()}>
-        <PhonePane />
+        <PhotoPane />
       </div>
 
       <div className={classes.root}>
