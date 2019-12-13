@@ -80,8 +80,52 @@ const useStyles = makeStyles(theme => ({
     }),
     marginLeft: 0
   },
-   
+
 }));
+
+function setRouteForNavButtons(text, handleDrawerClose) {
+  console.log("Set Route in TNav: " + text);
+  let listItem = (
+    <ListItem button key={text} onClick={handleDrawerClose}>
+      <ListItemIcon>{icons(text)}</ListItemIcon>
+      <ListItemText primary={text} />
+    </ListItem>
+  )
+
+  if (text === "Dashboard") {
+    return (
+      <Link to="/teacher" key={text}>
+        {listItem}
+      </Link>
+    )
+  } else if (text === "View Daily") {
+    return (
+      <Link to="/teacher/view-daily" key={text}>
+        {listItem}
+      </Link>
+    )
+  } else if (text === "Add Daily") {
+    return (
+      <Link to="/teacher/add-daily" key={text}>
+        {listItem}
+      </Link>
+    )
+  } else if (text === "View Photo") {
+    return (
+      <Link to="/view-pictures" key={text}>
+        {listItem}
+      </Link>
+    )
+  } else if (text === "Add Photo") {
+    return (
+      <Link to="/teacher/add-pictures" key={text}>
+        {listItem}
+      </Link>
+    )
+  } else {
+    return listItem;
+  }
+}
 
 function icons(text) {
   if (text === "Dashboard") return <DashboardIcon />;
@@ -141,10 +185,10 @@ export default function PersistentDrawerLeft() {
               <Button color="inherit">Logout</Button>
             </Link>
           ) : (
-            <Link to="/login">
-              <Button color="inherit">Login</Button>
-            </Link>
-          )}
+              <Link to="/login">
+                <Button color="inherit">Login</Button>
+              </Link>
+            )}
         </Toolbar>
       </AppBar>
 
@@ -165,8 +209,8 @@ export default function PersistentDrawerLeft() {
             {theme.direction === "ltr" ? (
               <ChevronLeftIcon />
             ) : (
-              <ChevronRightIcon />
-            )}
+                <ChevronRightIcon />
+              )}
           </IconButton>
         </div>
         <Divider />
@@ -178,10 +222,11 @@ export default function PersistentDrawerLeft() {
             "View Photo",
             "Add Photo"
           ].map((text, index) => (
-            <ListItem button key={text}>
-              <ListItemIcon>{icons(text)}</ListItemIcon>
-              <ListItemText primary={text} />
-            </ListItem>
+            setRouteForNavButtons(text, handleDrawerClose)
+            // <ListItem button key={text}>
+            //   <ListItemIcon>{icons(text)}</ListItemIcon>
+            //   <ListItemText primary={text} />
+            // </ListItem>
           ))}
         </List>
         <Divider />
