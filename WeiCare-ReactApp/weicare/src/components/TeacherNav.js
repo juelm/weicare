@@ -89,7 +89,7 @@ function icons(text) {
   if (text === "Add Daily" || text === "Add Photo") return <EditIcon />;
 }
 
-export default function PersistentDrawerLeft() {
+export default function TeacherNavBar() {
   const { authTokens } = useAuth();
   const classes = useStyles();
   const theme = useTheme();
@@ -127,7 +127,7 @@ export default function PersistentDrawerLeft() {
             WeiCare
           </Typography>
           <Link to="/">
-            <Button color="inherit" position=''>Home</Button>
+            <Button color="inherit">Home</Button>
           </Link>
           <Link to="/about">
             <Button color="inherit" >About</Button>
