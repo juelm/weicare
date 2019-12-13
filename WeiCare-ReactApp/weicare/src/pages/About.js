@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import {pageStyle} from '../styles.js';
 
 class About extends Component {
 

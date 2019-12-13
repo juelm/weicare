@@ -21,7 +21,7 @@ import PrivateRoute from "./PrivateRoute";
 import TeacherRoute from "./TeacherRoute";
 import ParentRoute from "./ParentRoute";
 import { AuthContext } from "./context/auth";
-import TeacherPage from "./pages/teacherPage/TeacherPage"; 
+// import TeacherPage from "./pages/teacherPage/TeacherPage"; 
 
 import "./App.css";
 

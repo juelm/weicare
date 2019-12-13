@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import PhonePane from './PhontoPane';
 import { pageStyle } from "./styles.js";
 import { makeStyles } from "@material-ui/core/styles";
