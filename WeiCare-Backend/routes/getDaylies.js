@@ -4,17 +4,32 @@ var db = require('../db');
 
 //if /all is called, return the full results of the db.query. to select what kind of info to return, limit the query.
 
-router.get('/all', function(req, res, next){
-	db.query("SELECT * FROM DAYLIES", (error, result, fields) => {
-		if (error) {
-			console.log(error);
-			res.send(error);
-		}else{
-			console.log(result);
-            res.send(result[0]);
-        }
-	});
-	//res.send(result);
+router.get('/all', async function(req, res, next){
+	let response = await db.query("SELECT * FROM DAYLIES");//, (error, result, fields) => {
+	// 	if (error) {
+	// 		console.log(error);
+	// 		res.send(error);
+	// 	}else{
+	// 		console.log(result);
+    //         res.send(result);
+    //     }
+	// 	var $PK = 1;
+	// 	var $dispName = result[0]["DisplayName"];
+	// 	var $dispDate = result[0]["DisplayDate"];
+	// 	var $dispEmail = result[0]["DisplayEmail"];
+	// 	var $numResults = result[0]["TotalResults"];
+	// 	var selectState = selectColumns($PK, $dispDate, $dispName, $dispEmail, $numResults);
+	// 	console.log(selectState);
+	// 	db.query(selectState, (error, results, fields) => {
+	// 		if (error) {
+	// 		res.send(error);
+	// 		} else {
+	// 			res.send(results);
+	// 		}
+	// 	});
+	// });
+	res.send(response);
+
 });
 
 module.exports = router;
