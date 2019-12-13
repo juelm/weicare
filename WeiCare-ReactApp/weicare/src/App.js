@@ -60,7 +60,7 @@ function App() {
           <Route path="/about" component={About} />
           <Route path="/contact" component={Contact} />
           <Route path="/login" component={Login} />
-          <Route path="/viewpictures" component={ViewPictures} />
+          <Route path="/view-pictures" component={ViewPictures} />
           <PrivateRoute path="/logout" component={Logout} />
           <TeacherRoute path="/teacher/view-daily" component={TeacherViewDaily} />
           <TeacherRoute path="/teacher/add-daily" component={TeacherAddDaily} />
