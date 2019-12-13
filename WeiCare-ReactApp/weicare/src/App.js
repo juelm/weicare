@@ -37,9 +37,7 @@ function App() {
       localStorage.setItem("tokens", data["tokens"]);
       localStorage.setItem("username", data["username"]);
     }
-
     console.log("authToken: " + authTokens + "  localstorage: " + localStorage.getItem("tokens"));
-
   }
 
   function setStorageToTokens() {

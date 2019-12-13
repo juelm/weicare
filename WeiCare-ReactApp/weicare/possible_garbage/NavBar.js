@@ -1,6 +1,6 @@
 import React from 'react';
-import Button from './Button.js';
-import { useAuth } from "../context/auth"
+import Button from '../src/components/Button.js';
+import { useAuth } from "../src/context/auth"
 
 function NavBar() {
   const height = 80;

@@ -25,7 +25,6 @@ class PhotoPane extends React.Component {
       <ImageGallery items={images} />
     );
   }
- 
 }
 
 export default PhotoPane;
