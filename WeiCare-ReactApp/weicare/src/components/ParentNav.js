@@ -82,6 +82,38 @@ const useStyles = makeStyles(theme => ({
   }
 }));
 
+function setRouteForNavButtons(text, handleDrawerClose) {
+  console.log("Set Route in TNav: " + text);
+  let listItem = (
+    <ListItem button key={text} onClick={handleDrawerClose}>
+      <ListItemIcon>{icons(text)}</ListItemIcon>
+      <ListItemText primary={text} />
+    </ListItem>
+  )
+
+  if (text === "Dashboard") {
+    return (
+      <Link to="/parent" key={text}>
+        {listItem}
+      </Link>
+    )
+  } else if (text === "View Daily") {
+    return (
+      <Link to="/parent/view-daily" key={text}>
+        {listItem}
+      </Link>
+    )
+  } else if (text === "View Photo") {
+    return (
+      <Link to="/view-pictures" key={text}>
+        {listItem}
+      </Link>
+    )
+  } else {
+    return listItem;
+  }
+}
+
 function icons(text) {
   if (text === "Dashboard") return <DashboardIcon />;
   if (text === "View Daily" || text === "View Photo") return <VisibilityIcon />;
@@ -175,10 +207,7 @@ export default function ParentNavBar() {
             "View Daily",
             "View Photo"
           ].map((text, index) => (
-            <ListItem button key={text}>
-              <ListItemIcon>{icons(text)}</ListItemIcon>
-              <ListItemText primary={text} />
-            </ListItem>
+            setRouteForNavButtons(text, handleDrawerClose)
           ))}
         </List>
         <Divider />

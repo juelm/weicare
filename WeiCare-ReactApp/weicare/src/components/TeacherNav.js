@@ -223,10 +223,6 @@ export default function TeacherNavBar() {
             "Add Photo"
           ].map((text, index) => (
             setRouteForNavButtons(text, handleDrawerClose)
-            // <ListItem button key={text}>
-            //   <ListItemIcon>{icons(text)}</ListItemIcon>
-            //   <ListItemText primary={text} />
-            // </ListItem>
           ))}
         </List>
         <Divider />
