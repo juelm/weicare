@@ -5,6 +5,7 @@ import Toolbar from "@material-ui/core/Toolbar";
 import Typography from "@material-ui/core/Typography";
 import Button from "@material-ui/core/Button";
 import { Link } from "react-router-dom";
+import { useAuth } from "../context/auth"
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -20,6 +21,8 @@ const useStyles = makeStyles(theme => ({
 
 export default function Header() {
   const classes = useStyles();
+  const { authTokens } = useAuth();
+
   return (
     <div className={classes.root}>
       <AppBar position="static">
@@ -36,9 +39,15 @@ export default function Header() {
           <Link to="/contact">
             <Button color="inherit">Contact</Button>
           </Link>
-          <Link to="/login">
-            <Button color="inherit">Login</Button>
-          </Link>
+          {console.log("authTokens in header : " + authTokens)}
+          {authTokens ?
+            <Link to="/logout">
+              <Button color="inherit">Logout</Button>
+            </Link>
+            :
+            <Link to="/login">
+              <Button color="inherit">Login</Button>
+            </Link>}
         </Toolbar>
       </AppBar>
     </div>

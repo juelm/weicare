@@ -8,25 +8,15 @@ import About from "./pages/About";
 import Contact from "./pages/Contact";
 import ViewPictures from "./pages/ViewPictures";
 import Login from "./pages/Login";
-
-// import ViewDaily from "./pages/teacherPage/ViewDaily";
-// import AddDaily from "./pages/teacherPage/AddDaily";
-
 import Logout from "./pages/Logout";
 import TeacherViewDaily from "./pages/teacherPage/TeacherViewDaily";
 import TeacherAddDaily from "./pages/teacherPage/TeacherAddDaily";
 import ParentViewDaily from "./pages/parentPage/ParentViewDaily";
-
 import PrivateRoute from "./PrivateRoute";
 import TeacherRoute from "./TeacherRoute";
 import ParentRoute from "./ParentRoute";
 import { AuthContext } from "./context/auth";
-// import TeacherPage from "./pages/teacherPage/TeacherPage"; 
-
 import "./App.css";
-
-
-
 
 function App() {
   const [authTokens, setAuthTokens] = useState(setStorageToTokens());
@@ -52,7 +42,6 @@ function App() {
 
   }
 
-
   function setStorageToTokens() {
     if (localStorage.getItem("tokens") === "null") {
       return null;
@@ -76,15 +65,12 @@ function App() {
           <Route path="/viewpictures" component={ViewPictures} />
           <PrivateRoute path="/logout" component={Logout} />
           <TeacherRoute path="/teacher/view-daily" component={TeacherViewDaily} />
-              {/* <PrivateRoute path="/viewdaily" component={ViewDaily} />
-              <PrivateRoute path="/adddaily" component={AddDaily} /> */}
           <TeacherRoute path="/teacher/add-daily" component={TeacherAddDaily} />
           <ParentRoute path="/parent/view-daily" component={ParentViewDaily} />}
           </div>
       </Router>
     </AuthContext.Provider>
   );
-
 }
 
 export default App;
