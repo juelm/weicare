@@ -9,6 +9,7 @@ import Contact from "./pages/Contact";
 import ViewPictures from "./pages/ViewPictures";
 import Login from "./pages/Login";
 import Logout from "./pages/Logout";
+import TeacherPage from "./pages/teacherPage/TeacherPage";
 import TeacherViewDaily from "./pages/teacherPage/TeacherViewDaily";
 import TeacherAddDaily from "./pages/teacherPage/TeacherAddDaily";
 import ParentViewDaily from "./pages/parentPage/ParentViewDaily";
@@ -37,7 +38,6 @@ function App() {
       localStorage.setItem("tokens", data["tokens"]);
       localStorage.setItem("username", data["username"]);
     }
-
     console.log("authToken: " + authTokens + "  localstorage: " + localStorage.getItem("tokens"));
   }
 
@@ -49,23 +49,30 @@ function App() {
     }
   }
 
+  function returnCorrectNavBar() {
+    if (authTokens === "Teacher") return <TeacherNav />
+    if (authTokens === "Parent") return <Header />
+  }
+
   console.log("User Identity - " + authTokens);
   return (
     <AuthContext.Provider value={{ authTokens, setAuthTokens: setTokens }}>
       <Router>
         <div>
-          <Header />
-          {authTokens === "Parent" && <ParentNav />}
-          {authTokens === "Teacher" && <TeacherNav />}
+          {authTokens ?
+            returnCorrectNavBar()
+            :
+            <Header />}
           <Route exact path="/" component={HomePage} />
           <Route path="/about" component={About} />
           <Route path="/contact" component={Contact} />
           <Route path="/login" component={Login} />
-          <Route path="/viewpictures" component={ViewPictures} />
+          <Route path="/view-pictures" component={ViewPictures} />
           <PrivateRoute path="/logout" component={Logout} />
+          <TeacherRoute path="/teacher" component={TeacherPage} />
           <TeacherRoute path="/teacher/view-daily" component={TeacherViewDaily} />
           <TeacherRoute path="/teacher/add-daily" component={TeacherAddDaily} />
-          <ParentRoute path="/parent/view-daily" component={ParentViewDaily} />}
+          <ParentRoute path="/parent/view-daily" component={ParentViewDaily} />
           </div>
       </Router>
     </AuthContext.Provider>
