@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React from "react";
 import ReactQuill from "react-quill"; // ES6
 import "react-quill/dist/quill.snow.css"; // ES6
 
@@ -9,19 +9,15 @@ class TeacherAddDaily extends React.Component {
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
   }
-
   handleChange(value) {
     this.setState({ text: value });
     console.log(this.state.text);
   }
-
   handleSubmit(event) {
     const userInput = this.state.text;
     alert(userInput);
-
     event.preventDefault();
   }
-
   render() {
     return (
       <div
@@ -37,6 +33,7 @@ class TeacherAddDaily extends React.Component {
         </button>
         <ReactQuill
           style={{
+            theme: "snow",
             marginLeft: "20%",
             marginButtom: "20%",
             width: "60%",

@@ -1,8 +1,8 @@
 import React, { useState } from "react";
-import { Link, Redirect } from 'react-router-dom';
-// import axios from "axios";
-import { Card, Logo, Form, Input, Button, Error, } from '../components/AuthForm';
+import { Redirect } from "react-router-dom";
+import { Card, Form, Input, Button, Error, } from '../components/AuthForm';
 import { useAuth } from "../context/auth";
+import getDaylies from '../modules/getDayliesMod';
 var json = require('../users.json');
 
 function Login(props) {
@@ -11,7 +11,8 @@ function Login(props) {
     const [userName, setUserName] = useState("");
     const [password, setPassword] = useState("");
     const { setAuthTokens } = useAuth();
-    //const referer = props.location.state.referer || '/';
+    const referer = props.location.state ? props.location.state.referer : "/";
+
 
     function handleClick(){
         let user = (json[userName]);
@@ -20,33 +21,20 @@ function Login(props) {
             console.log("Proper password - " + user.password);
             console.log("Entered Password - " + password);
             if(json[userName].password === password){
-                setAuthTokens(json[userName].userType);
+                setAuthTokens({
+                    "tokens": json[userName].userType,
+                    "username": userName
+                });
                 setLoggedIn(true);
+            } else {
+                setIsError(true);
             }
         }
       }
 
-
-    // // Auth via axios
-    // function postLogin() {
-    //     axios.post("https://www.somePlace.com/auth/login", {
-    //         userName,
-    //         password
-    //     }).then(result => {
-    //         if (result.status === 200) {
-    //             setAuthTokens(result.data);
-    //             setLoggedIn(true);
-    //         } else {
-    //             setIsError(true);
-    //         }
-    //     }).catch(e => {
-    //         setIsError(true);
-    //     });
-    // }
-
-    // if (isLoggedIn) {
-    //     return <Redirect to={referer} />;
-    // }
+    if (isLoggedIn) {
+        return <Redirect to={referer} />;
+    }
 
     return (
         <div style={{ margin: '175px 40%' }}>
@@ -69,7 +57,6 @@ function Login(props) {
                     />
                     <Button onClick={handleClick}>Sign In</Button>
                 </Form>
-                <Link to="/signup">Don't have an account?</Link>
                 {isError && <Error>The username or password provided were incorrect!</Error>}
             </Card>
         </div>
