@@ -51,7 +51,8 @@ function App() {
 
   function returnCorrectNavBar() {
     if (authTokens === "Teacher") return <TeacherNav />
-    if (authTokens === "Parent") return <ParentNav />
+    else if (authTokens === "Parent") return <ParentNav />
+    else return <Header />
   }
 
   console.log("User Identity - " + authTokens);
