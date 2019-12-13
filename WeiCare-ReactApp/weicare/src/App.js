@@ -9,6 +9,7 @@ import Contact from "./pages/Contact";
 import ViewPictures from "./pages/ViewPictures";
 import Login from "./pages/Login";
 import Logout from "./pages/Logout";
+import TeacherPage from "./pages/teacherPage/TeacherPage";
 import TeacherViewDaily from "./pages/teacherPage/TeacherViewDaily";
 import TeacherAddDaily from "./pages/teacherPage/TeacherAddDaily";
 import ParentViewDaily from "./pages/parentPage/ParentViewDaily";
@@ -68,6 +69,7 @@ function App() {
           <Route path="/login" component={Login} />
           <Route path="/view-pictures" component={ViewPictures} />
           <PrivateRoute path="/logout" component={Logout} />
+          <TeacherRoute path="/teacher" component={TeacherPage} />
           <TeacherRoute path="/teacher/view-daily" component={TeacherViewDaily} />
           <TeacherRoute path="/teacher/add-daily" component={TeacherAddDaily} />
           <ParentRoute path="/parent/view-daily" component={ParentViewDaily} />

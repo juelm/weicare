@@ -9,9 +9,17 @@ function Login(props) {
     const [isError, setIsError] = useState(false);
     const [userName, setUserName] = useState("");
     const [password, setPassword] = useState("");
-    const { setAuthTokens } = useAuth();
-    const referer = props.location.state ? props.location.state.referer : "/";
+    const { authTokens, setAuthTokens } = useAuth();
+    const referer = props.location.state ? props.location.state.referer : decideCorrectHomepage();
 
+    function decideCorrectHomepage() {
+        if (isLoggedIn) {
+            if (authTokens === "Parent") return "/parent";
+            if (authTokens === "Teacher") return "/teacher";
+        } else {
+            return "/";
+        }
+    }
 
     function handleClick(){
         let user = (json[userName]);
