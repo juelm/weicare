@@ -70,7 +70,7 @@ function App() {
           <PrivateRoute path="/logout" component={Logout} />
           <TeacherRoute path="/teacher/view-daily" component={TeacherViewDaily} />
           <TeacherRoute path="/teacher/add-daily" component={TeacherAddDaily} />
-          <ParentRoute path="/parent/view-daily" component={ParentViewDaily} />}
+          <ParentRoute path="/parent/view-daily" component={ParentViewDaily} />
           </div>
       </Router>
     </AuthContext.Provider>
