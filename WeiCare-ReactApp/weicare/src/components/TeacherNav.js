@@ -20,6 +20,9 @@ import ContactSupportIcon from "@material-ui/icons/ContactSupport";
 import DashboardIcon from "@material-ui/icons/Dashboard";
 import VisibilityIcon from "@material-ui/icons/Visibility";
 import EditIcon from "@material-ui/icons/Edit";
+import { Link } from "react-router-dom";
+import { useAuth } from "../context/auth";
+import Button from "@material-ui/core/Button";
 
 const drawerWidth = 240;
 
@@ -76,7 +79,8 @@ const useStyles = makeStyles(theme => ({
       duration: theme.transitions.duration.enteringScreen
     }),
     marginLeft: 0
-  }
+  },
+   
 }));
 
 function icons(text) {
@@ -86,6 +90,7 @@ function icons(text) {
 }
 
 export default function PersistentDrawerLeft() {
+  const { authTokens } = useAuth();
   const classes = useStyles();
   const theme = useTheme();
   const [open, setOpen] = React.useState(false);
@@ -101,6 +106,7 @@ export default function PersistentDrawerLeft() {
   return (
     <div className={classes.root}>
       <CssBaseline />
+
       <AppBar
         position="fixed"
         className={clsx(classes.appBar, {
@@ -118,10 +124,30 @@ export default function PersistentDrawerLeft() {
             <MenuIcon />
           </IconButton>
           <Typography variant="h6" noWrap>
-            Teacher's Page
+            WeiCare
           </Typography>
+          <Link to="/">
+            <Button color="inherit" position=''>Home</Button>
+          </Link>
+          <Link to="/about">
+            <Button color="inherit" >About</Button>
+          </Link>
+          <Link to="/contact">
+            <Button color="inherit">Contact</Button>
+          </Link>
+          {console.log("authTokens in header : " + authTokens)}
+          {authTokens ? (
+            <Link to="/logout">
+              <Button color="inherit">Logout</Button>
+            </Link>
+          ) : (
+            <Link to="/login">
+              <Button color="inherit">Login</Button>
+            </Link>
+          )}
         </Toolbar>
       </AppBar>
+
       <Drawer
         className={classes.drawer}
         variant="persistent"
@@ -132,6 +158,9 @@ export default function PersistentDrawerLeft() {
         }}
       >
         <div className={classes.drawerHeader}>
+          <Typography variant="h6" noWrap>
+            Teacher's Page
+          </Typography>
           <IconButton onClick={handleDrawerClose}>
             {theme.direction === "ltr" ? (
               <ChevronLeftIcon />
