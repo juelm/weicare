@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import { Redirect } from "react-router-dom";
 import { Card, Form, Input, Button, Error, } from '../components/AuthForm';
 import { useAuth } from "../context/auth";
-import getDaylies from '../modules/getDayliesMod';
 var json = require('../users.json');
 
 function Login(props) {
