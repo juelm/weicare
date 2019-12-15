@@ -6,6 +6,7 @@ import getDailies from '../../modules/getDayliesMod.js';
 function ParentViewDaily() {
 
     const[daylies, setDaylies] = useState([]);
+
     //const[user]
     
     // useEffect(() => {
@@ -16,40 +17,33 @@ function ParentViewDaily() {
 
     
     async function fetchDaylies(){
-        let res = await fetch('http://localhost:8080/api/getDailies/brownm');
-        res.json()
-        .then(res => console.log(res))
-        .then(res => setDaylies(res))
-        .catch(err => console.log(err))
+        let user = 'brownm';
+        let res = await fetch(`http://localhost:8080/api/getDailies/${user}`);
+        let resData = await res.json();
+        setDaylies(resData);
         console.log(daylies);
     }
 
     useEffect(() => {
-        fetchDaylies();
-        
-    });
-
-    //console.log(dailies)
+        fetchDaylies();  
+    },[]);
 
     return (
         
         <div style={{ margin: '175px 40%' }}>
-            {console.log(typeof(daylies))}
-            {console.log("this is in return: " + daylies)}
             {
-            daylies ?
-            <h3>{daylies[0]}</h3>
-            // daylies.map(daylies =>(
+            daylies.length ?
+            daylies.map(daylies =>(
                 
-            //     <div>
-            //         <h3>{daylies[0].title}</h3>
-            //     </div>
-            // ))
+                <div>
+                    <h3>{daylies.Title}</h3>
+                    <p>{daylies.DailyText}</p>
+                </div>
+            ))
             :
             <h3>loading</h3>
             
         }
-        {console.log(daylies)}
 
         </div>
     );
