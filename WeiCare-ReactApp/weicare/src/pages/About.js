@@ -2,10 +2,7 @@ import React, { Component } from 'react';
 
 class About extends Component {
 
-  getStyle = () => ({
-    margin: '150px auto 20px auto',
-    //clear: 'both'
-  });
+
 
   render() {
 

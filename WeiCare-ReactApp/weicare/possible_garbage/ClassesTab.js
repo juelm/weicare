@@ -18,7 +18,7 @@ class ClassesTab extends Component {
     display: 'block',
     margin: '2%',
     textAlign: 'center',
-    borderRadius: "15px"
+    // borderRadius: "15px"
   })
 
   render() {
