@@ -1,11 +1,12 @@
 import React from "react";
 import ReactQuill from "react-quill"; // ES6
 import "react-quill/dist/quill.snow.css"; // ES6
+import postDaily from '../../modules/postDailyMod.js';
 
 class TeacherAddDaily extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { text: "" }; // You can also pass a Quill Delta here
+    this.state = { text: "DailyText" }; // You can also pass a Quill Delta here
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
   }
@@ -15,9 +16,21 @@ class TeacherAddDaily extends React.Component {
   }
   handleSubmit(event) {
     const userInput = this.state.text;
-    alert(userInput);
+    //alert(userInput);
     event.preventDefault();
+
+    //CHANGE UI TO GET THESE AS INPUT
+    let title = 'dailyTitle';
+    let user = 'sullivana';
+    let className = 1;
+    postDaily(userInput, title, user, className);
+
   }
+
+  // componentDidMount(){
+  //   postDaily(this.state.text);
+  // }
+
   render() {
     return (
       <div

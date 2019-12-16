@@ -32,10 +32,10 @@ CONSTRAINT 			TeacherIDFK 			FOREIGN KEY(TeacherID)
 
 CREATE TABLE DAYLIES
 (
-DailyID				INT 								PRIMARY KEY			AUTO_INCREMENT,
+DailyID				INT 					PRIMARY KEY			AUTO_INCREMENT,
 ClassID				INT,
 Title				VARCHAR(30),
-DailyDate			INT,										
+DailyDate			TIMESTAMP				DEFAULT CURRENT_TIMESTAMP,										
 DailyText			VARCHAR(400),
 CONSTRAINT 			DailyClassIDFK 			FOREIGN KEY(ClassID)
 											REFERENCES CLASSES(ClassID)
@@ -104,16 +104,16 @@ Values
 (2, 'blue');
 
 INSERT INTO DAYLIES 
-(Title, ClassID, DailyDate, DailyText)
+(Title, ClassID, DailyText)
 VALUES
-("Friday Fun", 1, unix_timestamp('2018-11-11 01:23:00') + (86400 * 47),
+("Friday Fun", 1,
 "metus blandit erat, in feugiat diam quam non magna. Phasellus eleifend nisl quis mi scelerisque aliquam. "),
 
-("SCIENCE", 1, unix_timestamp('2018-10-15 01:10:00') + (86400 * 48),
+("SCIENCE", 1,
 "rhoncus eros. Nunc vulputate nisi molestie, ultricies metus eu, volutpat justo. Praesent id sodales neque.
  Mauris ultricies et elit id ornare. Vestibulum est tellus, lacinia a eros vel, interdum"),
 
-("Welcome Back", 2, unix_timestamp('2018-01-09 01:05:00') + (86400 * 49),
+("Welcome Back", 2,
 "Vivamus nec auctor elit. Integer mattis venenatis fringilla. Quisque tempus diam sit amet mattis 
 commodo. Phasellus volutpat diam vestibulum, tristique metus non, pharetra eros. Aliquam nec leo eleifend,
 congue nisl varius, suscipit elit");
