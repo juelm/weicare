@@ -32,13 +32,13 @@ CONSTRAINT 			TeacherIDFK 			FOREIGN KEY(TeacherID)
 
 CREATE TABLE DAYLIES
 (
-DailyID				INT 								PRIMARY KEY			AUTO_INCREMENT,
-TeacherID			INT,
+DailyID				INT 					PRIMARY KEY			AUTO_INCREMENT,
+ClassID				INT,
 Title				VARCHAR(30),
-DailyDate			INT,										
+DailyDate			TIMESTAMP				DEFAULT CURRENT_TIMESTAMP,										
 DailyText			VARCHAR(400),
-CONSTRAINT 			DaylyTeacherIDFK 			FOREIGN KEY(TeacherID)
-											REFERENCES TEACHERS(TeacherID)
+CONSTRAINT 			DailyClassIDFK 			FOREIGN KEY(ClassID)
+											REFERENCES CLASSES(ClassID)
                                             ON DELETE NO ACTION
 											ON UPDATE CASCADE
 );
@@ -97,27 +97,26 @@ VALUES
 ('Florence', 'Nightengale', 'flo@fakemail.com', '(206) 555-2222','nightegalef', 'pass3');
 
 
-INSERT INTO DAYLIES 
-(Title, TeacherID, DailyDate, DailyText)
-VALUES
-("Friday Fun", 1, unix_timestamp('2018-11-11 01:23:00') + (86400 * 47),
-"metus blandit erat, in feugiat diam quam non magna. Phasellus eleifend nisl quis mi scelerisque aliquam. "),
-
-("SCIENCE", 1, unix_timestamp('2018-10-15 01:10:00') + (86400 * 48),
-"rhoncus eros. Nunc vulputate nisi molestie, ultricies metus eu, volutpat justo. Praesent id sodales neque.
- Mauris ultricies et elit id ornare. Vestibulum est tellus, lacinia a eros vel, interdum"),
-
-("Welcome Back", 2, unix_timestamp('2018-01-09 01:05:00') + (86400 * 49),
-"Vivamus nec auctor elit. Integer mattis venenatis fringilla. Quisque tempus diam sit amet mattis 
-commodo. Phasellus volutpat diam vestibulum, tristique metus non, pharetra eros. Aliquam nec leo eleifend,
-congue nisl varius, suscipit elit");
-
-
 INSERT INTO CLASSES
 (TeacherID, Classroom)
 Values
 (1, 'red'),
 (2, 'blue');
+
+INSERT INTO DAYLIES 
+(Title, ClassID, DailyText)
+VALUES
+("Friday Fun", 1,
+"metus blandit erat, in feugiat diam quam non magna. Phasellus eleifend nisl quis mi scelerisque aliquam. "),
+
+("SCIENCE", 1,
+"rhoncus eros. Nunc vulputate nisi molestie, ultricies metus eu, volutpat justo. Praesent id sodales neque.
+ Mauris ultricies et elit id ornare. Vestibulum est tellus, lacinia a eros vel, interdum"),
+
+("Welcome Back", 2,
+"Vivamus nec auctor elit. Integer mattis venenatis fringilla. Quisque tempus diam sit amet mattis 
+commodo. Phasellus volutpat diam vestibulum, tristique metus non, pharetra eros. Aliquam nec leo eleifend,
+congue nisl varius, suscipit elit");
 
 INSERT INTO STUDENTS 
 (ClassID, FirstName, LastName)

@@ -20,6 +20,7 @@ import VisibilityIcon from "@material-ui/icons/Visibility";
 import EditIcon from "@material-ui/icons/Edit";
 import { Link } from "react-router-dom";
 import { useAuth } from "../context/auth";
+import {linkStyle} from "../pages/styles";
 
 
 const drawerWidth = 240;
@@ -167,27 +168,25 @@ export default function TeacherNavBar() {
           </IconButton>
           <Grid container justify="space-between" spacing={24}>
             <Grid item>
-              <Typography variant="h5" >
-                WeiCare
-              </Typography>
+              <Typography variant="h5">WeiCare</Typography>
             </Grid>
             <Grid item>
-              <Link to="/">
+              <Link to="/" style={linkStyle()}>
                 <Button color="inherit">Home</Button>
               </Link>
-              <Link to="/about">
+              <Link to="/about" style={linkStyle()}>
                 <Button color="inherit">About</Button>
               </Link>
-              <Link to="/contact">
+              <Link to="/contact" style={linkStyle()}>
                 <Button color="inherit">Contact</Button>
               </Link>
               {console.log("authTokens in header : " + authTokens)}
               {authTokens ? (
-                <Link to="/logout">
+                <Link to="/logout" style={linkStyle()}>
                   <Button color="inherit">Logout</Button>
                 </Link>
               ) : (
-                <Link to="/login">
+                <Link to="/login" style={linkStyle()}>
                   <Button color="inherit">Login</Button>
                 </Link>
               )}
