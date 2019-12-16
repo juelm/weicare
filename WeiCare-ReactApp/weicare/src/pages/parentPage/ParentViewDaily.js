@@ -20,23 +20,25 @@ function ParentViewDaily() {
     },[]);
 
     return (
-        
-        <div style={{ margin: '175px 40%' }}>
-            {
-            daylies.length ?
-            daylies.map(daylies =>(
-                
-                <div>
-                    <h3>{daylies.Title}</h3>
-                    <p>{daylies.DailyText}</p>
-                </div>
-            ))
-            :
-            <h3>loading</h3>
-            
-        }
+   
 
-        </div>
+      <div style={{ margin: '175px 40%' }}>
+          {
+          daylies.length ?
+          daylies.map(daylies =>(
+
+              <div>
+                  <h3>{daylies.Title}</h3>
+                  {daylies.DailyText}
+              </div>
+              
+          ))
+          :
+          <h3>loading</h3>
+
+      }
+
+      </div>
     );
 }
 
