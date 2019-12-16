@@ -3,7 +3,7 @@ import { Tabs, Tab, Paper } from "@material-ui/core";
 
 function Footer() {
   return (
-    <Paper>
+    <Paper style={{clear:'both'}}>
       <Tabs
         indicatorColor="primary"
         textColor="primary"
