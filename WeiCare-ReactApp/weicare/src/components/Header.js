@@ -10,7 +10,7 @@ export default function Header() {
 
   return (
  
-      <AppBar position="static">
+      <AppBar>
         <Toolbar>
           <Grid container justify="space-between" spacing={24}>
             <Grid item>
@@ -21,7 +21,7 @@ export default function Header() {
                 <Button color="inherit">Home</Button>
               </Link>
               <Link to="/about">
-                <Button color="inherit">About us</Button>
+                <Button color="inherit">About</Button>
               </Link>
               <Link to="/contact">
                 <Button color="inherit">Contact</Button>

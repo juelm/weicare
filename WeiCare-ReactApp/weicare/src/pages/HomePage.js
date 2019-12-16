@@ -2,7 +2,7 @@ import React from 'react';
 import Paper from "@material-ui/core/Paper"; 
 
 
-import Image from '../components/kids3.jpg'; // Import using relative path
+import Image from '../img/kids3.jpg'; // Import using relative path
 
 
 const styles = {
