@@ -3,10 +3,8 @@ import clsx from "clsx";
 import { makeStyles, useTheme } from "@material-ui/core/styles";
 import Drawer from "@material-ui/core/Drawer";
 import CssBaseline from "@material-ui/core/CssBaseline";
-import AppBar from "@material-ui/core/AppBar";
-import Toolbar from "@material-ui/core/Toolbar";
+import {AppBar, Toolbar, Grid, Typography, Button} from "@material-ui/core";
 import List from "@material-ui/core/List";
-import Typography from "@material-ui/core/Typography";
 import Divider from "@material-ui/core/Divider";
 import IconButton from "@material-ui/core/IconButton";
 import MenuIcon from "@material-ui/icons/Menu";
@@ -22,7 +20,7 @@ import VisibilityIcon from "@material-ui/icons/Visibility";
 import EditIcon from "@material-ui/icons/Edit";
 import { Link } from "react-router-dom";
 import { useAuth } from "../context/auth";
-import Button from "@material-ui/core/Button";
+
 
 const drawerWidth = 240;
 
@@ -167,28 +165,34 @@ export default function TeacherNavBar() {
           >
             <MenuIcon />
           </IconButton>
-          <Typography variant="h6" noWrap>
-            WeiCare
-          </Typography>
-          <Link to="/">
-            <Button color="inherit">Home</Button>
-          </Link>
-          <Link to="/about">
-            <Button color="inherit" >About</Button>
-          </Link>
-          <Link to="/contact">
-            <Button color="inherit">Contact</Button>
-          </Link>
-          {console.log("authTokens in header : " + authTokens)}
-          {authTokens ? (
-            <Link to="/logout">
-              <Button color="inherit">Logout</Button>
-            </Link>
-          ) : (
-              <Link to="/login">
-                <Button color="inherit">Login</Button>
+          <Grid container justify="space-between" spacing={24}>
+            <Grid item>
+              <Typography variant="h5" >
+                WeiCare
+              </Typography>
+            </Grid>
+            <Grid item>
+              <Link to="/">
+                <Button color="inherit">Home</Button>
               </Link>
-            )}
+              <Link to="/about">
+                <Button color="inherit">About</Button>
+              </Link>
+              <Link to="/contact">
+                <Button color="inherit">Contact</Button>
+              </Link>
+              {console.log("authTokens in header : " + authTokens)}
+              {authTokens ? (
+                <Link to="/logout">
+                  <Button color="inherit">Logout</Button>
+                </Link>
+              ) : (
+                <Link to="/login">
+                  <Button color="inherit">Login</Button>
+                </Link>
+              )}
+            </Grid>
+          </Grid>
         </Toolbar>
       </AppBar>
 
@@ -209,8 +213,8 @@ export default function TeacherNavBar() {
             {theme.direction === "ltr" ? (
               <ChevronLeftIcon />
             ) : (
-                <ChevronRightIcon />
-              )}
+              <ChevronRightIcon />
+            )}
           </IconButton>
         </div>
         <Divider />
@@ -221,9 +225,9 @@ export default function TeacherNavBar() {
             "Add Daily",
             "View Photo",
             "Add Photo"
-          ].map((text, index) => (
+          ].map((text, index) =>
             setRouteForNavButtons(text, handleDrawerClose)
-          ))}
+          )}
         </List>
         <Divider />
         <List>
