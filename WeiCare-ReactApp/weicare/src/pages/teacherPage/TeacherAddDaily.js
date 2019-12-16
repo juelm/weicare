@@ -1,8 +1,7 @@
 import React from "react";
 import ReactQuill from "react-quill"; // ES6
 import "react-quill/dist/quill.snow.css"; // ES6
-import postDaily from '../../modules/postDailyMod.js';
-import { spacing } from '@material-ui/system';
+import postDaily from "../../modules/postDailyMod.js";
 import Box from "@material-ui/core/Box";
 
 class TeacherAddDaily extends React.Component {
@@ -30,7 +29,6 @@ class TeacherAddDaily extends React.Component {
   //   this.setState({ title: value });
   //   console.log(this.state.title);
   // }
-
 
   handleSubmit(event) {
     const dailyDetail = this.state.text;
@@ -61,7 +59,7 @@ class TeacherAddDaily extends React.Component {
           >
             Submit
           </button>
-          <br/>
+          <br />
           <form action="">
             <label style={{ marginLeft: "20%" }}>
               Title:
@@ -80,7 +78,7 @@ class TeacherAddDaily extends React.Component {
               />
             </label>
           </form>
-          <br/>
+          <br />
 
           <ReactQuill
             style={{
@@ -95,8 +93,7 @@ class TeacherAddDaily extends React.Component {
             onChange={this.handleChange}
           ></ReactQuill>
         </div>
-        </Box>
-  
+      </Box>
     );
   }
 }
