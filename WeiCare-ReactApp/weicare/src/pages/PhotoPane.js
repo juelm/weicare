@@ -22,7 +22,9 @@ class PhotoPane extends React.Component {
     ];
  
     return (
-      <ImageGallery items={images} />
+      <div style={{marginTop:10}}>
+        <ImageGallery items={images} />
+      </div>
     );
   }
 }

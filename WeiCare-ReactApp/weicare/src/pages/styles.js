@@ -14,4 +14,4 @@ function headerStyle() {
 
 
 
-module.exports = { pageStyle, headerStyle };
+module.exports = { pageStyle, headerStyle};
