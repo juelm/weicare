@@ -1,9 +1,17 @@
 import React from 'react';
-import Paper from '@material-ui/core/Paper'; 
+import Paper from '@material-ui/core/Paper';
+import { Map, GoogleApiWrapper, Marker } from 'google-maps-react';
+import apiKey from "../mapApiKey";
 
-function Contact() {
-    return (
-    <Paper style={{magrinTop: 10, padding:80}}>
+function Contact(props) {
+
+  const mapStyle = {
+    height: "400px",
+    width: "400px"
+  }
+
+  return (
+    <Paper style={{ magrinTop: 10, padding: 80 }}>
       <div>
         <h2>
           Petite Ecole des Grandes Découvertes <br />
@@ -18,9 +26,19 @@ function Contact() {
           http://www.magarderie.com/garderie/11783-petite-ecole-des-grandes-decouvertes.html
         </p>
       </div>
-      </Paper>
-    );
+      <Map
+          google={props.google}
+          zoom={12}
+          style={mapStyle}
+          initialCenter={{ lat: 45.509210, lng: -73.694640 }}
+      >
+      <Marker position={{ lat: 45.509210, lng: -73.694640 }} />
+      </Map>
+    </Paper>
+  );
 }
 
-export default Contact;
+export default GoogleApiWrapper({
+  apiKey: apiKey
+}) (Contact) ;
 

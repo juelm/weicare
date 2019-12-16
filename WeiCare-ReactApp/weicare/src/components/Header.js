@@ -10,6 +10,8 @@ export default function Header() {
   const { authTokens } = useAuth();
 
   return (
+
+ 
     <AppBar position="static" >
       <Toolbar>
         <Grid container justify="space-between" spacing={24}>
@@ -30,6 +32,7 @@ export default function Header() {
             {authTokens ? (
               <Link to="/logout" style={linkStyle()}>
                 <Button color="inherit">Logout</Button>
+
               </Link>
             ) : (
               <Link to="/login" style={linkStyle()}>

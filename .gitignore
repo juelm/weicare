@@ -48,5 +48,9 @@ Icon?
 # mysql
 **/dbCreds.json
 
+
+# Google API Key
+mapApiKey.js
+
 # express
 **/.env
