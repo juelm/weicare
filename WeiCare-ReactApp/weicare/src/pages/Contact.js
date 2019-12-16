@@ -1,6 +1,7 @@
 import React from 'react';
 import Paper from '@material-ui/core/Paper';
 import { Map, GoogleApiWrapper, Marker } from 'google-maps-react';
+import apiKey from "../mapApiKey";
 
 function Contact(props) {
 
@@ -38,6 +39,6 @@ function Contact(props) {
 }
 
 export default GoogleApiWrapper({
-  apiKey: "AIzaSyCCetVmNeA_MXOyP2-j519gpPWU-96Tj2o"
+  apiKey: apiKey
 }) (Contact) ;
 
