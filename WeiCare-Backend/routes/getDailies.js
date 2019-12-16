@@ -10,30 +10,41 @@ router.get('/all', function(req, res, next){
 			console.log(error);
 			res.send(error);
 		}else{
+			console.log(result);
+            res.send(result[0]);
+        }
+	});
+	//res.send(result);
+});
+
+router.get('/:userName', function(req, res, next) {
+	let nameString = ""
+	//let selectString = `SELECT ParentID FROM PARENTS WHERE UserName = '${req.params.userName}'`;
+	let selectString = `SELECT Title, DailyText 
+						FROM DAYLIES JOIN CLASSES Using(ClassID) 
+						JOIN STUDENTS Using(ClassID) 
+						JOIN STUDENTPARENT Using(StudentID)
+						JOIN PARENTS Using(ParentID) 
+						WHERE UserName = '${req.params.userName}'`;
+
+	db.query(selectString, (error, result, fields) => {
+		if (error) {
+			console.log(error);
+			res.send(error);
+		}else{
+
+			console.log(result);
             res.send(result);
         }
-		// var $PK = 1;
-		// var $dispName = result[0]["DisplayName"];
-		// var $dispDate = result[0]["DisplayDate"];
-		// var $dispEmail = result[0]["DisplayEmail"];
-		// var $numResults = result[0]["TotalResults"];
-		// var selectState = selectColumns($PK, $dispDate, $dispName, $dispEmail, $numResults);
-		// console.log(selectState);
-		// db.query(selectState, (error, results, fields) => {
-		// 	if (error) {
-		// 	res.send(error);
-		// 	} else {
-		// 		res.send(results);
-		// 	}
-		// });
 	});
-
-});
+  
+	//res.send(json[req.params.userName]);
+  });
 
 module.exports = router;
 
 
-function selectColumns($PK, $dispDate, $dispName, $dispEmail, $numResults){
+function selectDailies($PK, $dispDate, $dispName, $dispEmail, $numResults){
 	$columnString = "SELECT";
 	$fromTable = "FROM MESSAGES";
 	$limit = "";
