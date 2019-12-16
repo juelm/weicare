@@ -1,19 +1,2 @@
-body {
- 
-  /* background-color: beige; */
 
-}
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
-}
-
-.footer {
-
-  margin-bottom: 0;
-  flex-shrink: 0;
-  text-align: center;
-  background-color: tomato;
-  color: white;
-}

@@ -13,7 +13,6 @@ function headerStyle(){
         background:"Gray",
         width:'100%'
 
-
     });
 }
 

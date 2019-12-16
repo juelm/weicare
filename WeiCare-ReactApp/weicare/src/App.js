@@ -17,6 +17,7 @@ import PrivateRoute from "./PrivateRoute";
 import TeacherRoute from "./TeacherRoute";
 import ParentRoute from "./ParentRoute";
 import { AuthContext } from "./context/auth";
+import Footer from "./components/Footer";
 import "./App.css";
 
 function App() {
@@ -51,11 +52,13 @@ function App() {
 
   function returnCorrectNavBar() {
     if (authTokens === "Teacher") return <TeacherNav />
-    if (authTokens === "Parent") return <Header />
+    else if (authTokens === "Parent") return <ParentNav />
+    else return <Header />
   }
 
   console.log("User Identity - " + authTokens);
   return (
+    <>
     <AuthContext.Provider value={{ authTokens, setAuthTokens: setTokens }}>
       <Router>
         <div>
@@ -76,6 +79,8 @@ function App() {
           </div>
       </Router>
     </AuthContext.Provider>
+    <Footer />
+    </>
   );
 }
 

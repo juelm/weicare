@@ -12,6 +12,12 @@ function headerStyle() {
   };
 }
 
+function linkStyle(){
+  return{
+    color: "white",
+    textDecoration: "none" 
+  }
+}
 
 
-module.exports = { pageStyle, headerStyle };
+module.exports = { pageStyle, headerStyle, linkStyle};
