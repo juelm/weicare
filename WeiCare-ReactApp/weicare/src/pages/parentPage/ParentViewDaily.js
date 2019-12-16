@@ -1,31 +1,22 @@
 import React, { useEffect, useState } from "react";
 import { Card, Form, Input, Button } from '../../components/AuthForm';
-import getDailies from '../../modules/getDayliesMod.js';
+import fetchDailies from '../../modules/getDailiesMod.js';
 
 
 function ParentViewDaily() {
 
-    const[daylies, setDaylies] = useState([]);
+    const[daylies, setDailies] = useState([]);
 
-    //const[user]
-    
-    // useEffect(() => {
-    //     let getDailies();
-    //     updateDailies(getDailies())},[]);
-    
-    // useEffect(() => {updateDailies(getDailies())},[]);
-
-    
-    async function fetchDaylies(){
-        let user = 'brownm';
-        let res = await fetch(`http://localhost:8080/api/getDailies/${user}`);
-        let resData = await res.json();
-        setDaylies(resData);
-        console.log(daylies);
-    }
+    // async function fetchDaylies(){
+    //     let user = 'brownm';
+    //     let res = await fetch(`http://localhost:8080/api/getDailies/${user}`);
+    //     let resData = await res.json();
+    //     setDaylies(resData);
+    //     console.log(daylies);
+    // }
 
     useEffect(() => {
-        fetchDaylies();  
+        fetchDailies(setDailies);  
     },[]);
 
     return (

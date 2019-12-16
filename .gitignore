@@ -47,3 +47,6 @@ Icon?
 
 # mysql
 **/dbCreds.json
+
+# express
+**/.env
