@@ -4,7 +4,7 @@ CREATE DATABASE wei_care;
 
 USE wei_care;
 
-DROP TABLE IF EXISTS DAYLIES, TEACHERS, PARENTS, STUDENTS, STUDENTPARENT, CLASSES;
+DROP TABLE IF EXISTS DAYLIES, TEACHERS, PARENTS, STUDENTS, STUDENTPARENT, CLASSES, LOGINCREDENTIALS;
 
 CREATE TABLE TEACHERS
 (
@@ -14,7 +14,7 @@ LastName			VARCHAR(30),
 Email				VARCHAR(30),										
 Phone				VARCHAR(15),
 UserName			VARCHAR(30),
-TeacherPassword		VARCHAR(30)							UNIQUE
+`Password`			VARCHAR(30)							UNIQUE
 );
 
 
@@ -67,7 +67,7 @@ LastName			VARCHAR(30),
 Email				VARCHAR(100),										
 Phone				VARCHAR(15),
 UserName			VARCHAR(30),
-ParentPassword		VARCHAR(30)							UNIQUE
+`Password`			VARCHAR(30)							UNIQUE
 );
 
 CREATE TABLE STUDENTPARENT
@@ -90,7 +90,7 @@ CONSTRAINT 			SParentIDFK 			FOREIGN KEY(ParentID)
 
 
 INSERT INTO TEACHERS 
-(FirstName, LastName, Email, Phone, UserName, TeacherPassword)
+(FirstName, LastName, Email, Phone, UserName, `Password`)
 VALUES
 ('Bobby', 'Mcgee', 'robertmcGee2120@fakemail.com', '(206) 555-7892', 'mcgeeb', 'pass1'),
 ('Anne', 'Sullivan', 'sully@fakemail.com', '(206) 555-6471', 'sullivana', 'pass2'),
@@ -129,7 +129,7 @@ VALUES
 
 
 INSERT INTO PARENTS 
-(FirstName, LastName, Email, Phone, UserName, ParentPassword)
+(FirstName, LastName, Email, Phone, UserName, `Password`)
 VALUES
 ('Peter', 'McAllister', 'petermcallister1955@fakemail.com', '(206) 555-7999', 'mcallisterp', 'pass1'),
 ('Kate', 'McAllister', 'katemcallister1955@fakemail.com', '(206) 555-7999', 'mcallisterk', 'pass2'),

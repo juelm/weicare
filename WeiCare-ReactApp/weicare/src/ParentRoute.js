@@ -4,7 +4,7 @@ import { useAuth } from "./context/auth"
 
 function ParentRoute({ component: Component, ...rest }) {
     const { authTokens } = useAuth();
-    console.log("This is in parent route: " + authTokens);
+    // console.log("This is in parent route: " + authTokens);
   
   return(
     <Route 

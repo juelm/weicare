@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { Redirect } from "react-router-dom";
 import { Card, Form, Input, Button, Error, } from '../components/AuthForm';
 import { useAuth } from "../context/auth";
+import ValidateCredentials from "../modules/validateUser";
 var json = require('../users.json');
 
 function Login(props) {
@@ -9,6 +10,7 @@ function Login(props) {
     const [isError, setIsError] = useState(false);
     const [userName, setUserName] = useState("");
     const [password, setPassword] = useState("");
+    const [userType, setUserType] = useState("Parent");
     const { authTokens, setAuthTokens } = useAuth();
     const referer = props.location.state ? props.location.state.referer : decideCorrectHomepage();
 
@@ -21,15 +23,14 @@ function Login(props) {
         }
     }
 
-    function handleClick(){
-        let user = (json[userName]);
-        console.log(user);
-        if(user){
-            console.log("Proper password - " + user.password);
-            console.log("Entered Password - " + password);
-            if(json[userName].password === password){
+        async function handleClick(){
+        if(userName){
+            //console.log("Entered Password - " + password);
+            let validation = await ValidateCredentials(userName, password, userType)
+            //console.log("validation - " + validation)
+            if(validation){
                 setAuthTokens({
-                    "tokens": json[userName].userType,
+                    "tokens": userType,
                     "username": userName
                 });
                 setLoggedIn(true);
@@ -38,6 +39,24 @@ function Login(props) {
             }
         }
       }
+    
+    // function handleClick(){
+    //     let user = (json[userName]);
+    //     console.log(user);
+    //     if(user){
+    //         console.log("Proper password - " + user.password);
+    //         console.log("Entered Password - " + password);
+    //         if(json[userName].password === password){
+    //             setAuthTokens({
+    //                 "tokens": json[userName].userType,
+    //                 "username": userName
+    //             });
+    //             setLoggedIn(true);
+    //         } else {
+    //             setIsError(true);
+    //         }
+    //     }
+    //   }
 
     if (isLoggedIn) {
         return <Redirect to={referer} />;
