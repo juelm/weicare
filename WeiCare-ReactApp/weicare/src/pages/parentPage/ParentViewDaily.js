@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-import { Card, Form, Input, Button } from '../../components/AuthForm';
 import fetchDailies from '../../modules/getDailiesMod.js';
 
 
