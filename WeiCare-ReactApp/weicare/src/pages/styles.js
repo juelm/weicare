@@ -19,5 +19,12 @@ function linkStyle(){
   }
 }
 
+function subLinkStyle(){
+  return{
+    color:"black", 
+    textDecoration:"none"
+  }
+}
 
-module.exports = { pageStyle, headerStyle, linkStyle};
+
+module.exports = { pageStyle, headerStyle, linkStyle, subLinkStyle};

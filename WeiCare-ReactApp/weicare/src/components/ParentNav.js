@@ -21,6 +21,7 @@ import EditIcon from "@material-ui/icons/Edit";
 import { Link } from "react-router-dom";
 import { useAuth } from "../context/auth";
 import Button from "@material-ui/core/Button";
+import {linkStyle, subLinkStyle} from "../pages/styles";
 
 const drawerWidth = 240;
 
@@ -91,22 +92,22 @@ function setRouteForNavButtons(text, handleDrawerClose) {
 
   if (text === "Dashboard") {
     return (
-      <Link to="/parent" key={text}>
+      <Link to="/parent" key={text} style={subLinkStyle()}>
         {listItem}
       </Link>
-    )
+    );
   } else if (text === "View Daily") {
     return (
-      <Link to="/parent/view-daily" key={text}>
+      <Link to="/parent/view-daily" key={text} style={subLinkStyle()}>
         {listItem}
       </Link>
-    )
+    );
   } else if (text === "View Photo") {
     return (
-      <Link to="/view-pictures" key={text}>
+      <Link to="/view-pictures" key={text} style={subLinkStyle()}>
         {listItem}
       </Link>
-    )
+    );
   } else {
     return listItem;
   }
@@ -152,33 +153,33 @@ export default function ParentNavBar() {
           >
             <MenuIcon />
           </IconButton>
-           <Grid container justify="space-between" spacing={24}>
+          <Grid container justify="space-between" spacing={24}>
             <Grid item>
-          <Typography variant="h6" noWrap>
-            WeiCare
-          </Typography>
-          </Grid>
-          <Grid item>
-          <Link to="/">
-            <Button color="inherit">Home</Button>
-          </Link>
-          <Link to="/about">
-            <Button color="inherit">About</Button>
-          </Link>
-          <Link to="/contact">
-            <Button color="inherit">Contact</Button>
-          </Link>
-          {console.log("authTokens in header : " + authTokens)}
-          {authTokens ? (
-            <Link to="/logout">
-              <Button color="inherit">Logout</Button>
-            </Link>
-          ) : (
-            <Link to="/login">
-              <Button color="inherit">Login</Button>
-            </Link>
-          )}
-          </Grid>
+              <Typography variant="h6" noWrap>
+                WeiCare
+              </Typography>
+            </Grid>
+            <Grid item>
+              <Link to="/" style={linkStyle()}>
+                <Button color="inherit">Home</Button>
+              </Link>
+              <Link to="/about" style={linkStyle()}>
+                <Button color="inherit">About</Button>
+              </Link>
+              <Link to="/contact" style={linkStyle()}>
+                <Button color="inherit">Contact</Button>
+              </Link>
+              {console.log("authTokens in header : " + authTokens)}
+              {authTokens ? (
+                <Link to="/logout" style={linkStyle()}>
+                  <Button color="inherit">Logout</Button>
+                </Link>
+              ) : (
+                <Link to="/login" style={linkStyle()}>
+                  <Button color="inherit">Login</Button>
+                </Link>
+              )}
+            </Grid>
           </Grid>
         </Toolbar>
       </AppBar>
@@ -206,13 +207,9 @@ export default function ParentNavBar() {
         </div>
         <Divider />
         <List>
-          {[
-            "Dashboard",
-            "View Daily",
-            "View Photo"
-          ].map((text, index) => (
+          {["Dashboard", "View Daily", "View Photo"].map((text, index) =>
             setRouteForNavButtons(text, handleDrawerClose)
-          ))}
+          )}
         </List>
         <Divider />
         <List>
