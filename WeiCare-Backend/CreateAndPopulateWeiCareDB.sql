@@ -4,7 +4,7 @@ CREATE DATABASE wei_care;
 
 USE wei_care;
 
-DROP TABLE IF EXISTS DAYLIES, TEACHERS, PARENTS, STUDENTS, STUDENTPARENT, CLASSES, LOGINCREDENTIALS;
+DROP TABLE IF EXISTS DAYLIES, TEACHERS, PARENTS, STUDENTS, STUDENTPARENT, CLASSES;
 
 CREATE TABLE TEACHERS
 (
@@ -14,7 +14,8 @@ LastName			VARCHAR(30),
 Email				VARCHAR(30),										
 Phone				VARCHAR(15),
 UserName			VARCHAR(30),
-`Password`			VARCHAR(30)							UNIQUE
+`Password`		    VARCHAR(30)							UNIQUE,
+UserType            VARCHAR(30)
 );
 
 
@@ -67,7 +68,8 @@ LastName			VARCHAR(30),
 Email				VARCHAR(100),										
 Phone				VARCHAR(15),
 UserName			VARCHAR(30),
-`Password`			VARCHAR(30)							UNIQUE
+`Password`		    VARCHAR(30)							UNIQUE,
+UserType            VARCHAR(30)
 );
 
 CREATE TABLE STUDENTPARENT
@@ -90,11 +92,11 @@ CONSTRAINT 			SParentIDFK 			FOREIGN KEY(ParentID)
 
 
 INSERT INTO TEACHERS 
-(FirstName, LastName, Email, Phone, UserName, `Password`)
+(FirstName, LastName, Email, Phone, UserName, `Password`, UserType)
 VALUES
-('Bobby', 'Mcgee', 'robertmcGee2120@fakemail.com', '(206) 555-7892', 'mcgeeb', 'pass1'),
-('Anne', 'Sullivan', 'sully@fakemail.com', '(206) 555-6471', 'sullivana', 'pass2'),
-('Florence', 'Nightengale', 'flo@fakemail.com', '(206) 555-2222','nightegalef', 'pass3');
+('Bobby', 'Mcgee', 'robertmcGee2120@fakemail.com', '(206) 555-7892', 'mcgeeb', 'pass1', 'Teacher'),
+('Anne', 'Sullivan', 'sully@fakemail.com', '(206) 555-6471', 'sullivana', 'pass2', 'Teacher'),
+('Florence', 'Nightengale', 'flo@fakemail.com', '(206) 555-2222','nightegalef', 'pass3', 'Teacher');
 
 
 INSERT INTO CLASSES
@@ -129,12 +131,12 @@ VALUES
 
 
 INSERT INTO PARENTS 
-(FirstName, LastName, Email, Phone, UserName, `Password`)
+(FirstName, LastName, Email, Phone, UserName, `Password`, UserType)
 VALUES
-('Peter', 'McAllister', 'petermcallister1955@fakemail.com', '(206) 555-7999', 'mcallisterp', 'pass1'),
-('Kate', 'McAllister', 'katemcallister1955@fakemail.com', '(206) 555-7999', 'mcallisterk', 'pass2'),
-('MwaMwa', 'Brown', 'mwamwa@fakemail.com', '(206) 555-2189', 'brownm', 'pass3'),
-('Archie', 'Manning', 'archiemanning@fakemail.com', '(206) 555-6789', 'manninga', 'pass4');
+('Peter', 'McAllister', 'petermcallister1955@fakemail.com', '(206) 555-7999', 'mcallisterp', 'pass1', 'Parent'),
+('Kate', 'McAllister', 'katemcallister1955@fakemail.com', '(206) 555-7999', 'mcallisterk', 'pass2', 'Parent'),
+('MwaMwa', 'Brown', 'mwamwa@fakemail.com', '(206) 555-2189', 'brownm', 'pass3', 'Parent'),
+('Archie', 'Manning', 'archiemanning@fakemail.com', '(206) 555-6789', 'manninga', 'pass4', 'Parent');
 
 INSERT INTO STUDENTPARENT 
 (ParentID, StudentID, Relationship)

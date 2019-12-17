@@ -10,7 +10,6 @@ function Login(props) {
     const [isError, setIsError] = useState(false);
     const [userName, setUserName] = useState("");
     const [password, setPassword] = useState("");
-    const [userType, setUserType] = useState("Parent");
     const { authTokens, setAuthTokens } = useAuth();
     const referer = props.location.state ? props.location.state.referer : decideCorrectHomepage();
 
@@ -25,12 +24,11 @@ function Login(props) {
 
         async function handleClick(){
         if(userName){
-            //console.log("Entered Password - " + password);
-            let validation = await ValidateCredentials(userName, password, userType)
-            //console.log("validation - " + validation)
+            let validation = await ValidateCredentials(userName, password)
+            console.log("validation result - " + validation)
             if(validation){
                 setAuthTokens({
-                    "tokens": userType,
+                    "tokens": validation,
                     "username": userName
                 });
                 setLoggedIn(true);
@@ -39,24 +37,6 @@ function Login(props) {
             }
         }
       }
-    
-    // function handleClick(){
-    //     let user = (json[userName]);
-    //     console.log(user);
-    //     if(user){
-    //         console.log("Proper password - " + user.password);
-    //         console.log("Entered Password - " + password);
-    //         if(json[userName].password === password){
-    //             setAuthTokens({
-    //                 "tokens": json[userName].userType,
-    //                 "username": userName
-    //             });
-    //             setLoggedIn(true);
-    //         } else {
-    //             setIsError(true);
-    //         }
-    //     }
-    //   }
 
     if (isLoggedIn) {
         return <Redirect to={referer} />;

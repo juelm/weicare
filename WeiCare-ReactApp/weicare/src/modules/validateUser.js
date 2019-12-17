@@ -1,8 +1,7 @@
-export default async function ValidateCredentials(userName, password, userType){
+export default async function ValidateCredentials(userName, password){
     let reqBody = {
         userName: userName,
-        password: password,
-        userType: userType
+        password: password
     };
 
     let requestDetails = {
@@ -15,8 +14,8 @@ export default async function ValidateCredentials(userName, password, userType){
     };
 
     let res = await fetch('http://localhost:8080/api/validateCredentials', requestDetails);
-    // res = await res.keys();
-    console.log(res);
+    res = await res.json();
 
-    return await res;
+    if (res.length === 0) return await null;
+    else return await res[0].UserType;
 }

@@ -6,21 +6,18 @@ router.post('/', function (req, res, next) {
 	console.log(`Hello ${req.body}`);
 	console.log(req.body.class);
 
-	let queryString = `SELECT UserName, Password
-					   FROM '${req.body.userType}'
-					   WHERE UserName='${req.body.userName}' AND Password='${req.body.password}'`;
+	let queryString = `SELECT UserType FROM Teachers WHERE UserName = '${req.body.userName}' AND Password = '${req.body.password}' UNION SELECT UserType FROM Parents WHERE UserName = '${req.body.userName}' AND Password = '${req.body.password}'`;
 
 	console.log(queryString);
 
 	db.query(queryString, (error, result, fields) => {
 		if (error) {
 			console.log(error);
-			res.send(false);
-		}else{
-
+			res.send(null);
+		} else {
 			console.log(result);
-            res.send(true);
-        }
+            res.send(result);
+		}
 	});
 });
 
