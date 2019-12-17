@@ -1,6 +1,6 @@
 function pageStyle() {
   return {
-    // background: "white",
+    padding: "10%",
     marginTop: 10,
   };
 }
@@ -25,6 +25,7 @@ function subLinkStyle(){
     textDecoration:"none"
   }
 }
+
 
 
 module.exports = { pageStyle, headerStyle, linkStyle, subLinkStyle};
