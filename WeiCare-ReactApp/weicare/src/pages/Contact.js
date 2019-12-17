@@ -1,8 +1,6 @@
 import React from 'react';
-import Box from '@material-ui/core/Box';
 import Paper from '@material-ui/core/paper'; 
 import Grid from '@material-ui/core/Grid';
-import { positions } from "@material-ui/system";
 import { Map, GoogleApiWrapper, Marker } from 'google-maps-react';
 import apiKey from "../mapApiKey";
 import { makeStyles } from "@material-ui/core/styles";
