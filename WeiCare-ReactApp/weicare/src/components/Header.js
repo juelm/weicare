@@ -12,7 +12,7 @@ export default function Header() {
   return (
 
  
-    <AppBar position="static" >
+    <AppBar>
       <Toolbar>
         <Grid container justify="space-between">
           <Grid item>
