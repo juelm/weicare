@@ -12,6 +12,7 @@ var postDailiesRouter = require('./routes/postDailies');
 
 var classRoster = require('./routes/classRoster');
 var parentDashInfo = require('./routes/parentDashInfo.js')
+var validateCredentialsRouter = require('./routes/validateCredentials');
 
 var validateCredentialsRouter = require('./routes/validateCredentials');
 
