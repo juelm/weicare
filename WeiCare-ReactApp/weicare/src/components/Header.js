@@ -28,7 +28,6 @@ export default function Header() {
             <Link to="/contact" style={linkStyle()}>
               <Button color="inherit">Contact</Button>
             </Link>
-            {console.log("authTokens in header : " + authTokens)}
             {authTokens ? (
               <Link to="/logout" style={linkStyle()}>
                 <Button color="inherit">Logout</Button>

@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { Redirect } from "react-router-dom";
 import { Card, Form, Input, Button, Error, } from '../components/AuthForm';
 import { useAuth } from "../context/auth";
+import ValidateCredentials from "../modules/validateUser";
 var json = require('../users.json');
 
 function Login(props) {
@@ -21,15 +22,13 @@ function Login(props) {
         }
     }
 
-    function handleClick(){
-        let user = (json[userName]);
-        console.log(user);
-        if(user){
-            console.log("Proper password - " + user.password);
-            console.log("Entered Password - " + password);
-            if(json[userName].password === password){
+        async function handleClick(){
+        if(userName){
+            let validation = await ValidateCredentials(userName, password)
+            console.log("validation result - " + validation)
+            if(validation){
                 setAuthTokens({
-                    "tokens": json[userName].userType,
+                    "tokens": validation,
                     "username": userName
                 });
                 setLoggedIn(true);

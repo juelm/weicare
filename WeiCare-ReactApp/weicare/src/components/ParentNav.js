@@ -82,7 +82,7 @@ const useStyles = makeStyles(theme => ({
 }));
 
 function setRouteForNavButtons(text, handleDrawerClose) {
-  console.log("Set Route in TNav: " + text);
+  // console.log("Set Route in PNav: " + text);
   let listItem = (
     <ListItem button key={text} onClick={handleDrawerClose}>
       <ListItemIcon>{icons(text)}</ListItemIcon>
@@ -155,6 +155,7 @@ export default function ParentNavBar() {
           </IconButton>
           <Grid container justify="space-between" spacing={24}>
             <Grid item>
+
               <Typography variant="h6" noWrap>
                 WeiCare
               </Typography>

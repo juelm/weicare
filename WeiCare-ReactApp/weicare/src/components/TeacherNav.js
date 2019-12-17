@@ -84,7 +84,7 @@ const useStyles = makeStyles(theme => ({
 }));
 
 function setRouteForNavButtons(text, handleDrawerClose) {
-  console.log("Set Route in TNav: " + text);
+  // console.log("Set Route in TNav: " + text);
   let listItem = (
     <ListItem button key={text} onClick={handleDrawerClose}>
       <ListItemIcon>{icons(text)}</ListItemIcon>
@@ -181,7 +181,6 @@ export default function TeacherNavBar() {
               <Link to="/contact" style={linkStyle()}>
                 <Button color="inherit">Contact</Button>
               </Link>
-              {console.log("authTokens in header : " + authTokens)}
               {authTokens ? (
                 <Link to="/logout" style={linkStyle()}>
                   <Button color="inherit">Logout</Button>
