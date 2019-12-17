@@ -61,7 +61,6 @@ const useStyles = makeStyles(theme => ({
     display: "flex",
     alignItems: "center",
     padding: theme.spacing(0, 1),
-    ...theme.mixins.toolbar,
     justifyContent: "flex-end"
   },
   content: {
@@ -204,7 +203,7 @@ export default function TeacherNavBar() {
         }}
       >
         <div className={classes.drawerHeader}>
-          <Typography variant="h6" noWrap>
+          <Typography variant="h6" noWrap style={{padding: "15px"}}>
             Teacher's Page
           </Typography>
           <IconButton onClick={handleDrawerClose}>
@@ -245,8 +244,6 @@ export default function TeacherNavBar() {
         })}
       >
         <div className={classes.drawerHeader} />
-        <Typography paragraph></Typography>
-        <Typography paragraph></Typography>
       </main>
     </div>
   );
