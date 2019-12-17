@@ -25,8 +25,8 @@ function App() {
   const [authTokens, setAuthTokens] = useState(setStorageToTokens());
 
   const setTokens = (data) => {
-    console.log(localStorage.getItem("tokens"));
-    console.log(localStorage.getItem("username"));
+    // console.log(localStorage.getItem("tokens"));
+    // console.log(localStorage.getItem("username"));
 
     for (let key in data) {
       localStorage.setItem(key, data[key]);
@@ -40,7 +40,7 @@ function App() {
       localStorage.setItem("tokens", data["tokens"]);
       localStorage.setItem("username", data["username"]);
     }
-    console.log("authToken: " + authTokens + "  localstorage: " + localStorage.getItem("tokens"));
+    // console.log("authToken: " + authTokens + "  localstorage: " + localStorage.getItem("tokens"));
   }
 
   function setStorageToTokens() {
@@ -57,12 +57,12 @@ function App() {
     else return <Header />
   }
 
-  console.log("User Identity - " + authTokens);
+  // console.log("User Identity - " + authTokens);
   return (
     <>
     <AuthContext.Provider value={{ authTokens, setAuthTokens: setTokens }}>
       <Router>
-        <div>
+        <div style = {{minHeight: '700px'}}>
           {authTokens ?
             returnCorrectNavBar()
             :

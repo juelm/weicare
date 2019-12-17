@@ -4,7 +4,7 @@ import { useAuth } from "./context/auth"
 
 function TeacherRoute({ component: Component, ...rest }) {
     const { authTokens } = useAuth();
-    console.log("This is in teacher route: " + authTokens);
+    // console.log("This is in teacher route: " + authTokens);
   
   return(
     <Route 

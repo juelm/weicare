@@ -1,8 +1,6 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import '../App.css'; 
-import Pic1280 from '../img/res1280.png'; 
 import Pic1024 from '../img/res1024.jpg'; 
-import Pic800 from '../img/res800.jpg'; 
 import Pic650 from '../img/res650.jpg'; 
 
 
@@ -18,20 +16,20 @@ function HomePage(){
         </div>
   )
 
-  const useWindowWidth = () => {
-    const [windowWidth, setWindowWidth] = useState(window.innerWidth);
+  // const useWindowWidth = () => {
+  //   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
 
-    const handleWindowResize = () => {
-      setWindowWidth(window.innerWidth);
-    };
+  //   const handleWindowResize = () => {
+  //     setWindowWidth(window.innerWidth);
+  //   };
 
-    useEffect(() => {
-      window.addEventListener("resize", handleWindowResize);
-      return () => window.removeEventListener("resize", handleWindowResize);
-    }, []);
+  //   useEffect(() => {
+  //     window.addEventListener("resize", handleWindowResize);
+  //     return () => window.removeEventListener("resize", handleWindowResize);
+  //   }, []);
 
-    return windowWidth;
-  };
+  //   return windowWidth;
+  // };
 }
 
 export default HomePage; 
