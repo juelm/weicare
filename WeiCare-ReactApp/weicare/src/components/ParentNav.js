@@ -153,7 +153,7 @@ export default function ParentNavBar() {
           >
             <MenuIcon />
           </IconButton>
-          <Grid container justify="space-between" spacing={24}>
+          <Grid container justify="space-between">
             <Grid item>
 
               <Typography variant="h6" noWrap>

@@ -167,7 +167,7 @@ export default function TeacherNavBar() {
           >
             <MenuIcon />
           </IconButton>
-          <Grid container justify="space-between" spacing={24}>
+          <Grid container justify="space-between">
             <Grid item>
               <Typography variant="h5">WeiCare</Typography>
             </Grid>

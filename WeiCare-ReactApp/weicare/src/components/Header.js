@@ -14,7 +14,7 @@ export default function Header() {
  
     <AppBar position="static" >
       <Toolbar>
-        <Grid container justify="space-between" spacing={24}>
+        <Grid container justify="space-between">
           <Grid item>
             <Typography variant="h4">WeiCare</Typography>
           </Grid>
