@@ -60,7 +60,7 @@ function App() {
     <>
     <AuthContext.Provider value={{ authTokens, setAuthTokens: setTokens }}>
       <Router>
-        <div>
+        <div style = {{minHeight: '700px'}}>
           {authTokens ?
             returnCorrectNavBar()
             :
