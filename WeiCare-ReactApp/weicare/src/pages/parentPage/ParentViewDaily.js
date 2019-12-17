@@ -2,8 +2,6 @@ import React, { useEffect, useState } from "react";
 import fetchDailies from '../../modules/getDailiesMod.js';
 import Paper from '@material-ui/core/Paper';
 import Grid from '@material-ui/core/Grid';
-import { flexbox } from "@material-ui/system";
-
 
 function titleBoxStyle(){
     return {
@@ -18,7 +16,6 @@ function titleBoxStyle(){
 
 function dailyBoxStyle(){
     return {
-        minHeight: '500px',
         display: 'inline-block',
         minHeight: '300px'
 
