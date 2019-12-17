@@ -20,7 +20,8 @@ import VisibilityIcon from "@material-ui/icons/Visibility";
 import EditIcon from "@material-ui/icons/Edit";
 import { Link } from "react-router-dom";
 import { useAuth } from "../context/auth";
-import {linkStyle} from "../pages/styles";
+import {linkStyle, subLinkStyle} from "../pages/styles";
+
 
 
 const drawerWidth = 240;
@@ -93,34 +94,34 @@ function setRouteForNavButtons(text, handleDrawerClose) {
 
   if (text === "Dashboard") {
     return (
-      <Link to="/teacher" key={text}>
+      <Link to="/teacher" key={text} style={subLinkStyle()}>
         {listItem}
       </Link>
-    )
+    );
   } else if (text === "View Daily") {
     return (
-      <Link to="/teacher/view-daily" key={text}>
+      <Link to="/teacher/view-daily" key={text} style={subLinkStyle()}>
         {listItem}
       </Link>
-    )
+    );
   } else if (text === "Add Daily") {
     return (
-      <Link to="/teacher/add-daily" key={text}>
+      <Link to="/teacher/add-daily" key={text} style={subLinkStyle()}>
         {listItem}
       </Link>
-    )
+    );
   } else if (text === "View Photo") {
     return (
-      <Link to="/view-pictures" key={text}>
+      <Link to="/view-pictures" key={text} style={subLinkStyle()}>
         {listItem}
       </Link>
-    )
+    );
   } else if (text === "Add Photo") {
     return (
-      <Link to="/teacher/add-pictures" key={text}>
+      <Link to="/teacher/add-pictures" key={text} style={subLinkStyle()}>
         {listItem}
       </Link>
-    )
+    );
   } else {
     return listItem;
   }
