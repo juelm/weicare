@@ -150,7 +150,6 @@ export default function TeacherNavBar() {
   return (
     <div className={classes.root}>
       <CssBaseline />
-
       <AppBar
         position="fixed"
         className={clsx(classes.appBar, {
