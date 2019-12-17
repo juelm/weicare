@@ -9,9 +9,13 @@ var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 var getDailiesRouter = require('./routes/getDailies');
 var postDailiesRouter = require('./routes/postDailies');
+
 var classRoster = require('./routes/classRoster');
 var parentDashInfo = require('./routes/parentDashInfo.js')
 var validateCredentialsRouter = require('./routes/validateCredentials');
+
+var validateCredentialsRouter = require('./routes/validateCredentials');
+
 
 var app = express();
 
@@ -37,6 +41,7 @@ app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/api/getDailies', getDailiesRouter);
 app.use('/api/postDailies', postDailiesRouter);
+
 app.use('/api/classRoster', classRoster); 
 app.use('/api/parentDashInfo', parentDashInfo); 
 
