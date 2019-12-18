@@ -8,10 +8,8 @@ import About from "./pages/About";
 import Contact from "./pages/Contact";
 import Login from "./pages/Login";
 import Logout from "./pages/Logout";
-import TeacherViewDaily from "./pages/teacherPage/TeacherViewDaily";
 import TeacherAddDaily from "./pages/teacherPage/TeacherAddDaily";
 import TeacherDashboard from "./pages/teacherPage/TeacherDashboard"; 
-import ParentViewDaily from "./pages/parentPage/ParentViewDaily";
 import ParentDashboard from "./pages/parentPage/ParentDashboard";
 import PrivateRoute from "./PrivateRoute";
 import TeacherRoute from "./TeacherRoute";
@@ -73,7 +71,7 @@ function App() {
           <Route path="/contact" component={Contact} />
           <Route path="/login" component={Login} />
           <PrivateRoute path="/logout" component={Logout} />
-          <TeacherRoute path="/teacher" component={TeacherDashboard} />
+          <TeacherRoute path="/teacher/dashboard" component={TeacherDashboard} />
           <TeacherRoute path="/teacher/view-daily" component={ViewDaily} />
           <TeacherRoute path="/teacher/add-daily" component={TeacherAddDaily} />
           <ParentRoute path="/parent/view-daily" component={ViewDaily} />

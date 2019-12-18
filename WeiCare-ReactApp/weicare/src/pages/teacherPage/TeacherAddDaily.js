@@ -3,12 +3,14 @@ import ReactQuill from "react-quill"; // ES6
 import "react-quill/dist/quill.snow.css"; // ES6
 import postDaily from "../../modules/postDailyMod.js";
 import Box from "@material-ui/core/Box";
+import Button from "@material-ui/core/Button";
 import { ENGINE_METHOD_STORE } from "constants";
+
 
 class TeacherAddDaily extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { text: " ", title: "", classRoom: "" }; // You can also pass a Quill Delta here
+    this.state = { text: " ", title: "", classRoom: "" }; 
     this.handleChange = this.handleChange.bind(this);
     this.handleChangeTitle = this.handleChangeTitle.bind(this);
     this.handleChangeClassName = this.handleChangeClassName.bind(this);
@@ -57,10 +59,12 @@ class TeacherAddDaily extends React.Component {
 
     event.preventDefault();
 
-    console.log(this.quillRef.getContents());
-
-    postDaily(dailyDetail, title, user, classRoom, this.setState);
-
+    if((classRoom == "1")|| (classRoom == "2") && (dailyDetail.Length > 0)){
+      postDaily(dailyDetail, title, user, classRoom, this.setState);
+    }
+    else{
+      alert("Daily detail can't be empty/ Class Room code has to be valide!");
+    }
   }
 
   render() {
@@ -97,7 +101,6 @@ class TeacherAddDaily extends React.Component {
             </label>
           </form>
           <br />
-
           <ReactQuill
             ref={(el) => { this.reactQuillRef = el }}
             name = 'editor'

@@ -1,6 +1,5 @@
 import React from 'react'
 import PhotoPane from '../components/PhotoPane'
-import pageStyle from './styles'
 
 function paneStyle(){
     return {
