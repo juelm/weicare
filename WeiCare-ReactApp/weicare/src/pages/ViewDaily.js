@@ -73,6 +73,23 @@ function ViewDaily() {
     }
     return tabContainer;
   }
+
+  function buildTabPanel(index) {
+    return (
+      <TabPanel value={value} index={index}>
+        <h1>{daylies[index].Title}</h1>
+        <p>{daylies[index].DailyText}</p>
+      </TabPanel>
+    );
+  }
+  function createTabPanelList() {
+    let tabContainer = [];
+    for (let i = 0; i < daylies.length; i++) {
+      tabContainer.push(buildTabPanel(i));
+    }
+    return tabContainer;
+  }
+
   return (
     <div className={classes.root}>
       <Tabs
@@ -85,27 +102,7 @@ function ViewDaily() {
       >
         {createTabList()}
       </Tabs>
-      <TabPanel value={value} index={0}>
-        Item One
-      </TabPanel>
-      <TabPanel value={value} index={1}>
-        Item Two
-      </TabPanel>
-      <TabPanel value={value} index={2}>
-        Item Three
-      </TabPanel>
-      <TabPanel value={value} index={3}>
-        Item Four
-      </TabPanel>
-      <TabPanel value={value} index={4}>
-        Item Five
-      </TabPanel>
-      <TabPanel value={value} index={5}>
-        Item Six
-      </TabPanel>
-      <TabPanel value={value} index={6}>
-        Item Seven
-      </TabPanel>
+      {createTabPanelList()}
     </div>
   );
 }
