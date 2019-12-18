@@ -65,7 +65,7 @@ function Login(props) {
               }}
               placeholder="Username"
             />
-            <br />
+            <div><br /></div>
 
             <TextField
               type="password"
@@ -75,7 +75,7 @@ function Login(props) {
               }}
               placeholder="Password"
             />
-            <br />
+            <div><br /></div>
             <Button variant="contained" color="primary" onClick={handleClick}>
               Sign In
             </Button>
