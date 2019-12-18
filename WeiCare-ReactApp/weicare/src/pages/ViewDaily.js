@@ -48,6 +48,7 @@ const useStyles = makeStyles(theme => ({
     borderRight: `1px solid ${theme.palette.divider}`
   }
 }));
+
 function ViewDaily() {
   const [daylies, setDailies] = useState([]);
   const [current, setCurrent] = useState(0);
@@ -58,14 +59,17 @@ function ViewDaily() {
   const handleChange = (event, newValue) => {
     setValue(newValue);
   };
+
   useEffect(() => {
     fetchAllDailies(setDailies, setCurrent, currentUser, authTokens);
   }, []);
+  
   function buildTab(index) {
     return (
       <Tab key={index} label={daylies[index].Title} {...a11yProps(index)} />
     );
   }
+
   function createTabList() {
     let tabContainer = [];
     for (let i = 0; i < daylies.length; i++) {
@@ -82,6 +86,7 @@ function ViewDaily() {
       </TabPanel>
     );
   }
+
   function createTabPanelList() {
     let tabContainer = [];
     for (let i = 0; i < daylies.length; i++) {
@@ -106,4 +111,5 @@ function ViewDaily() {
     </div>
   );
 }
+
 export default ViewDaily;
