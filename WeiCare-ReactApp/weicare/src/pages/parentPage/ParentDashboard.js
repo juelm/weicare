@@ -2,11 +2,11 @@ import React, { useEffect, useState } from "react";
 import getClassInfo from "../../modules/getParentDashInfo.js";
 import Paper from "@material-ui/core/Paper";
 
-function TeacherDashBoard() {
+function ParentDashBoard() {
   const [classInfo, setClassInfo] = useState([]);
 
   useEffect(() => {
-    getClassInfo(setClassInfo);
+    getClassInfo(setClassInfo,localStorage.getItem("username"));
   }, []);
 
   function className(classID){
@@ -15,17 +15,31 @@ function TeacherDashBoard() {
   }
 
   return (
-    <div style={{ marginLeft: "40%", marginRight: "10%", marginBottom: "5%" }}>
+    <div
+      style={{ width: "90%"}}
+    >
       <Paper
-        style={{ paddingLeft: "10%", paddingTop: "2%", paddingBottom: "5%" }}
+        style={{
+          width: "90%",
+          marginLeft: "5%",
+          marginTop: "10%",
+          padding: 20
+        }}
       >
         <h3>Teacher Info: </h3>
         {classInfo.length ? (
           classInfo.map(classInfo => (
             <div>
               <ul>
-                <li> Student: {classInfo.StudentFirstName} {classInfo.StudentLastName}</li>
-                <li> Teacher: {classInfo.FirstName} {classInfo.LastName} </li>
+                <li>
+                  {" "}
+                  Student: {classInfo.StudentFirstName}{" "}
+                  {classInfo.StudentLastName}
+                </li>
+                <li>
+                  {" "}
+                  Teacher: {classInfo.FirstName} {classInfo.LastName}{" "}
+                </li>
                 <li> Email: {classInfo.Email}</li>
                 <li> Class Room: {className(classInfo.classID)} </li>
               </ul>
@@ -39,4 +53,4 @@ function TeacherDashBoard() {
   );
 }
 
-export default TeacherDashBoard;
+export default ParentDashBoard;

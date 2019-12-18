@@ -1,5 +1,5 @@
-export default async function getClassRoster(setClassInfo) {
-  let userName = "manninga";
+export default async function getClassRoster(setClassInfo, userName) {
+  
 
   let classInfo = await fetch(
     `http://localhost:8080/api/parentDashInfo/${userName}`
@@ -8,3 +8,4 @@ export default async function getClassRoster(setClassInfo) {
  
   setClassInfo(classInfoData);
 }
+
