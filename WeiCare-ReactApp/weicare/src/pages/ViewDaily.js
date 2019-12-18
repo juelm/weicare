@@ -42,7 +42,11 @@ const useStyles = makeStyles(theme => ({
     flexGrow: 1,
     backgroundColor: theme.palette.background.paper,
     display: "flex",
-    height: 224
+    height: 224,
+    marginLeft: "20%",
+    marginTop: "10%",
+    
+    
   },
   tabs: {
     borderRight: `1px solid ${theme.palette.divider}`
@@ -65,8 +69,10 @@ function ViewDaily() {
   }, []);
   
   function buildTab(index) {
+    let date = new Date(daylies[index].DailyDate)
+
     return (
-      <Tab key={index} label={daylies[index].Title} {...a11yProps(index)} />
+      <Tab key={index} label={date.toDateString()} {...a11yProps(index)} />
     );
   }
 
