@@ -4,6 +4,8 @@ import "react-quill/dist/quill.snow.css"; // ES6
 import postDaily from "../../modules/postDailyMod.js";
 import Box from "@material-ui/core/Box";
 import Button from "@material-ui/core/Button";
+import { ENGINE_METHOD_STORE } from "constants";
+
 
 class TeacherAddDaily extends React.Component {
   constructor(props) {
@@ -13,6 +15,11 @@ class TeacherAddDaily extends React.Component {
     this.handleChangeTitle = this.handleChangeTitle.bind(this);
     this.handleChangeClassName = this.handleChangeClassName.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.attachQuillRefs = this.attachQuillRefs.bind(this);
+    this.quillRef = null;
+    this.reactQuillRef = null;
+    this.setState = this.setState.bind(this);
+
   }
 
   handleChange(value) {
@@ -26,6 +33,24 @@ class TeacherAddDaily extends React.Component {
     this.setState({ classRoom: event.target.value });
   }
 
+  attachQuillRefs() {
+    // Ensure React-Quill reference is available:
+    if (typeof this.reactQuillRef.getEditor !== 'function') return;
+    // Skip if Quill reference is defined:
+    if (this.quillRef != null) return;
+    
+    const quillRef = this.reactQuillRef.getEditor();
+    if (quillRef != null) this.quillRef = quillRef;
+  }
+
+  // handleChangeTitle(value) {
+  //   this.setState({ title: value });
+  //   console.log(this.state.title);
+  // }
+
+  componentDidMount(){
+    this.attachQuillRefs();
+  }
 
   handleSubmit(event) {
     const dailyDetail = this.state.text;
@@ -42,6 +67,8 @@ class TeacherAddDaily extends React.Component {
     else{
       alert("Daily detail can't be empty/ Class Room code has to be valide!");
     }
+    
+    postDaily(dailyDetail, title, user, classRoom, this.setState);
 
   }
 
@@ -102,6 +129,50 @@ class TeacherAddDaily extends React.Component {
           Submit
         </Button>
       </div>
+
+          <button
+            style={{ display: "block", marginLeft: "20%", color: "blue" }}
+            onClick={this.handleSubmit}
+          >
+            Submit
+          </button>
+          <br />
+          <form action="">
+            <label style={{ marginLeft: "20%" }}>
+              Title:
+              <input
+                type="text"
+                value={this.state.title}
+                onChange={this.handleChangeTitle}
+              />
+            </label>
+            <label style={{ marginLeft: "20%" }}>
+              Class Room:
+              <input
+                type="text"
+                value={this.state.classRoom}
+                onChange={this.handleChangeClassName}
+              />
+            </label>
+          </form>
+          <br />
+
+          <ReactQuill
+            ref={(el) => { this.reactQuillRef = el }}
+            name = 'editor'
+              style={{
+              theme: "snow",
+              marginLeft: "20%",
+              marginButtom: "20%",
+              width: "60%",
+              height: 600
+            }}
+            theme="snow"
+            value={this.state.text}
+            onChange={this.handleChange}
+          ></ReactQuill>; 
+        </div>
+      </Box>
     );
   }
 }

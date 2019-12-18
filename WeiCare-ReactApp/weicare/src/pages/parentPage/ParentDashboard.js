@@ -10,8 +10,8 @@ function TeacherDashBoard() {
   }, []);
 
   function className(classID){
-    if(classID == 1) return "Red"; 
-    if(classID == 2) return "Blue"; 
+    if(classID === 1) return "Red"; 
+    if(classID === 2) return "Blue"; 
   }
 
   return (
