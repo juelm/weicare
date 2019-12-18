@@ -1,8 +1,9 @@
-export default async function fetchAllDailies(setDailies, setCurrent, userName, userType) {
+export default async function fetchAllDailies(setDailies, setCurrent, userName, userClass) {
 
+    console.log(userName)
     let reqBody = {
       user: userName,
-      userType: userType
+      userType: userClass
     };
 
     let requestDetails = {
@@ -14,12 +15,10 @@ export default async function fetchAllDailies(setDailies, setCurrent, userName, 
       }
     };
 
-    let res = await fetch(
-      "http://localhost:8080/api/fetchAllDailies",
-      requestDetails
-    );
+    let res = await fetch("http://localhost:8080/api/fetchAllDailies", requestDetails);
 
     let resData= await res.json();
+    console.log(resData);
     setDailies(resData); 
     setCurrent(resData[0]);
 }

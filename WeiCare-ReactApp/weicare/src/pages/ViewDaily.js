@@ -3,7 +3,7 @@ import fetchDailies from "../modules/getDailiesMod.js";
 import fetchAllDailies from "../modules/fetchAllDailiesMod"
 import Paper from "@material-ui/core/Paper";
 import Grid from "@material-ui/core/Grid";
-import { useAuth } from "./context/auth"
+import { useAuth } from "../context/auth"
 
 function titleBoxStyle() {
   return {
@@ -33,7 +33,7 @@ function ViewDaily() {
   const [daylies, setDailies] = useState([]);
   const [current, setCurrent] = useState(0);
   const { authTokens } = useAuth();
-  const { currentUser } = useState(localStorage.getItem("username"));
+  const [currentUser ] = useState(localStorage.getItem("username"));
 
   console.log(currentUser); 
 
@@ -46,12 +46,12 @@ function ViewDaily() {
   // }
 
   useEffect(() => {
-    if(authTokens==="Parent"){
-      fetchDailies(setDailies, setCurrent, currentUser);
-    }
-    if(authTokens === "Teacher"){
-      fetchAllDailies(setDailies, setCurrent,currentUser);
-    }
+    // if(authTokens==="Parent"){
+    //   fetchDailies(setDailies, setCurrent, currentUser, authTokens);
+    // }
+    // if(authTokens === "Teacher"){
+      fetchAllDailies(setDailies, setCurrent, currentUser, authTokens);
+    //}
   }, []);
 
   function handleClick(event) {

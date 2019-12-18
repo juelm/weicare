@@ -5,28 +5,30 @@ var db = require("../db");
 
 router.post("/", function(req, res, next) {
   let selectString; 
+  console.log("HEEEEELLLOOOOO!")
+  console.log(req.body);
   if(req.body.userType === "Parent"){
 	  selectString = `SELECT Title, DailyText 
 						FROM DAYLIES JOIN CLASSES Using(ClassID) 
 						JOIN STUDENTS Using(ClassID) 
 						JOIN STUDENTPARENT Using(StudentID)
 						JOIN PARENTS Using(ParentID) 
-						WHERE UserName = '${req.body.userName}'`
+						WHERE UserName = '${req.body.user}'`
   }else if(req.body.userType === "Teacher"){
     selectString = `SELECT Title, DailyText 
 						FROM DAYLIES JOIN CLASSES Using(ClassID) 
-						JOIN TEACHER Using(TeacherID) 
-						WHERE UserName = '${req.body.userName}'`;
+						JOIN TEACHERS Using(TeacherID) 
+						WHERE UserName = '${req.body.user}'`;
 
   }
 
-  db.query(queryString, (error, result, fields) => {
+  db.query(selectString, (error, result, fields) => {
     if (error) {
       console.log(error);
       res.send(error);
     } else {
       console.log(result);
-      res.send("Record Successfully Updated");
+      res.send(result);
     }
   });
 
