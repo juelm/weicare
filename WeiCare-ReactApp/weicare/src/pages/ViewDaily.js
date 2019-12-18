@@ -42,7 +42,6 @@ const useStyles = makeStyles(theme => ({
     flexGrow: 1,
     backgroundColor: theme.palette.background.paper,
     display: "flex",
-    height: 224,
     width: '90%',
     marginLeft: "5%",
     marginTop: "10%",
