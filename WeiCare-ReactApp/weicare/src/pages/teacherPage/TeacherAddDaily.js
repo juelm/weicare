@@ -22,7 +22,6 @@ class TeacherAddDaily extends React.Component {
 
   handleChange(value) {
     this.setState({ text: value });
-    console.log(this.state.text);
   }
   handleChangeTitle(event) {
     this.setState({ title: event.target.value });
@@ -57,6 +56,8 @@ class TeacherAddDaily extends React.Component {
     const user = localStorage.getItem("username");
 
     event.preventDefault();
+
+    console.log(this.quillRef.getContents());
 
     postDaily(dailyDetail, title, user, classRoom, this.setState);
 

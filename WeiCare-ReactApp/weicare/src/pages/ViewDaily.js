@@ -96,7 +96,7 @@ function ViewDaily() {
                 <div style={{ textAlign: "center" }}>
                   {console.log(current.Text)}
                   <h1>{current.Title}</h1>
-                  <p>{current.DailyText}</p>
+                  <div dangerouslySetInnerHTML = {{__html: current.DailyText}}></div>
                 </div>
               ) : (
                 <h1>Dailies</h1>

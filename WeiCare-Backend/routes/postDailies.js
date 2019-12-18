@@ -1,21 +1,20 @@
 var express = require('express');
 var router = express.Router();
 var db = require('../db');
-//var cors = require('cors');
+var sanitizeHtml = require('sanitize-html');
 
 
 router.post('/', function(req, res, next) {
-	console.log(`Hello ${req.body}`);
-	console.log(req.body.class);
-	
-	// let nameString = ""
-	//let selectString = `SELECT ParentID FROM PARENTS WHERE UserName = '${req.params.userName}'`;
-	// let classString = `SELECT classID 
-	// 					FROM CLASSES JOIN TEACHERS Using(TeacherID) 
-	// 					WHERE UserName = '${req.body.user}'`;
+
+	let cleanClass = sanitizeHtml(req.body.class);
+	let cleanTitle = sanitizeHtml(req.body.title);
+	let cleanText = sanitizeHtml(req.body.text);
+
+	// let queryString = `INSERT INTO DAYLIES (ClassID, Title, DailyText)
+	// 				VALUES (${req.body.class}, '${req.body.title}', '${req.body.text}')`;
 
 	let queryString = `INSERT INTO DAYLIES (ClassID, Title, DailyText)
-					VALUES (${req.body.class}, '${req.body.title}', '${req.body.text}')`;
+	VALUES (${cleanClass}, '${cleanTitle}', '${cleanText}')`;
 
 	console.log(queryString);
 
@@ -28,8 +27,6 @@ router.post('/', function(req, res, next) {
             res.send("Record Successfully Updated");
         }
 	});
-  
-// 	//res.send(json[req.params.userName]);
 });
 
 
