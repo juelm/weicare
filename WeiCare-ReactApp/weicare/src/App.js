@@ -74,7 +74,7 @@ function App() {
           <Route path="/contact" component={Contact} />
           <Route path="/login" component={Login} />
           <PrivateRoute path="/logout" component={Logout} />
-          <TeacherRoute path="/teacher" component={TeacherDashboard} />
+          <TeacherRoute path="/teacher/dashboard" component={TeacherDashboard} />
           <TeacherRoute path="/teacher/view-daily" component={ViewDaily} />
           <TeacherRoute path="/teacher/add-daily" component={TeacherAddDaily} />
           <ParentRoute path="/parent/view-daily" component={ViewDaily} />
