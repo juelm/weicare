@@ -24,7 +24,6 @@ class TeacherAddDaily extends React.Component {
 
   handleChange(value) {
     this.setState({ text: value });
-    console.log(this.state.text);
   }
   handleChangeTitle(event) {
     this.setState({ title: event.target.value });
@@ -66,9 +65,6 @@ class TeacherAddDaily extends React.Component {
     else{
       alert("Daily detail can't be empty/ Class Room code has to be valide!");
     }
-    
-
-
   }
 
   render() {

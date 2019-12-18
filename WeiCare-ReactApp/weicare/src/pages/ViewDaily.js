@@ -104,18 +104,57 @@ function ViewDaily() {
   }
 
   return (
-    <div className={classes.root}>
-      <Tabs
-        orientation="vertical"
-        variant="scrollable"
-        value={value}
-        onChange={handleChange}
-        aria-label="Vertical tabs example"
-        className={classes.tabs}
-      >
-        {createTabList()}
-      </Tabs>
-      {createTabPanelList()}
+////////////////changeQuill
+    <div id="ViewDaily" style={outerBoxStyle()}>
+      <Grid container spacing={20}>
+        <Grid item xs>
+          <Paper style={titleBoxStyle()}>
+            <div id="titleContainer" style={{ leftMargin: "30px" }}>
+              {daylies.length ? (
+                daylies.map(daylies => (
+                  <div onClick={handleClick}>
+                    <h3 id={daylies.Title} style={{ textAlign: "center" }}>
+                      {daylies.Title}
+                    </h3>
+                    {/* {daylies.DailyText} */}
+                  </div>
+                ))
+              ) : (
+                <h3>loading</h3>
+              )}
+            </div>
+          </Paper>
+        </Grid>
+        <Grid item xs>
+          <Paper style={dailyBoxStyle()}>
+            <div id="dailyContainer" style={{ leftMargin: "30px" }}>
+              {current ? (
+                <div style={{ textAlign: "center" }}>
+                  {console.log(current.Text)}
+                  <h1>{current.Title}</h1>
+                  <div dangerouslySetInnerHTML = {{__html: current.DailyText}}></div>
+                </div>
+              ) : (
+                <h1>Dailies</h1>
+              )}
+            </div>
+          </Paper>
+        </Grid>
+      </Grid>
+////////////=========
+//    <div className={classes.root}>
+//      <Tabs
+//        orientation="vertical"
+//        variant="scrollable"
+//        value={value}
+//        onChange={handleChange}
+//        aria-label="Vertical tabs example"
+//        className={classes.tabs}
+//      >
+//        {createTabList()}
+//      </Tabs>
+//      {createTabPanelList()}
+/////////////////Master
     </div>
   );
 }
