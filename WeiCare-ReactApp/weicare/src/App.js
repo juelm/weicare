@@ -20,6 +20,7 @@ import ParentRoute from "./ParentRoute";
 import { AuthContext } from "./context/auth";
 import Footer from "./components/Footer";
 import ViewDaily from "./pages/ViewDaily";
+import ViewPictures from "./pages/ViewPictures";
 import "./App.css";
 
 function App() {
@@ -77,6 +78,7 @@ function App() {
           <TeacherRoute path="/teacher/view-daily" component={ViewDaily} />
           <TeacherRoute path="/teacher/add-daily" component={TeacherAddDaily} />
           <ParentRoute path="/parent/view-daily" component={ViewDaily} />
+          <PrivateRoute path="/view-pictures" component={ViewPictures} />
           <ParentRoute path="/parent/parentDashboard" component={ParentDashboard}/>
           </div>
       </Router>
