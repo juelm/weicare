@@ -90,7 +90,7 @@ function setRouteForNavButtons(text, handleDrawerClose) {
 
   if (text === "Dashboard") {
     return (
-      <Link to="/parent" key={text} style={subLinkStyle()}>
+      <Link to="/parent/dashboard" key={text} style={subLinkStyle()}>
         {listItem}
       </Link>
     );

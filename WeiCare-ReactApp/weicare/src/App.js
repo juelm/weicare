@@ -76,7 +76,7 @@ function App() {
           <TeacherRoute path="/teacher/add-daily" component={TeacherAddDaily} />
           <ParentRoute path="/parent/view-daily" component={ViewDaily} />
           <PrivateRoute path="/view-pictures" component={ViewPictures} />
-          <ParentRoute path="/parent/parentDashboard" component={ParentDashboard}/>
+          <ParentRoute path="/parent/dashboard" component={ParentDashboard}/>
           </div>
       </Router>
     </AuthContext.Provider>
