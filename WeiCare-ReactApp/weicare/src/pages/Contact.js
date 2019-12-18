@@ -10,14 +10,14 @@ const useStyles = makeStyles(theme => ({
   root: {
     width: "90%",
     marginLeft: "10%",
-    marginTop: "5%",
+    marginTop: "10%",
     marginBottom: "5%"
   },
   paper: {
     padding: theme.spacing(2),
     color: theme.palette.text.secondary,
-    height: "432px",
-    width: "432px"
+    height: "400px",
+    width: "400px"
   }
 }));
 
