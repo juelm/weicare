@@ -1,4 +1,4 @@
-export default async function postDaily(dailyText, dailyTitle, userName, className){
+export default async function postDaily(dailyText, dailyTitle, userName, className, setState){
     let reqBody = {
         user: userName,
         class: className,
@@ -17,8 +17,13 @@ export default async function postDaily(dailyText, dailyTitle, userName, classNa
 
     let res = await fetch('http://localhost:8080/api/postDailies', requestDetails);
 
+    let resData = await res.text();
+    
+    if(resData === "Record Successfully Updated"){
+        setState({ text: "", title: "", classRoom: "" });
+    }
+    
+    alert(resData);
+
     return await res;
-    //let resData = await res.json();
-    // setDailies(resData);
-    //console.log(daylies);
 }

@@ -3,6 +3,7 @@ import ReactQuill from "react-quill"; // ES6
 import "react-quill/dist/quill.snow.css"; // ES6
 import postDaily from "../../modules/postDailyMod.js";
 import Box from "@material-ui/core/Box";
+import { ENGINE_METHOD_STORE } from "constants";
 
 class TeacherAddDaily extends React.Component {
   constructor(props) {
@@ -12,6 +13,11 @@ class TeacherAddDaily extends React.Component {
     this.handleChangeTitle = this.handleChangeTitle.bind(this);
     this.handleChangeClassName = this.handleChangeClassName.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.attachQuillRefs = this.attachQuillRefs.bind(this);
+    this.quillRef = null;
+    this.reactQuillRef = null;
+    this.setState = this.setState.bind(this);
+
   }
 
   handleChange(value) {
@@ -25,10 +31,24 @@ class TeacherAddDaily extends React.Component {
     this.setState({ classRoom: event.target.value });
   }
 
+  attachQuillRefs() {
+    // Ensure React-Quill reference is available:
+    if (typeof this.reactQuillRef.getEditor !== 'function') return;
+    // Skip if Quill reference is defined:
+    if (this.quillRef != null) return;
+    
+    const quillRef = this.reactQuillRef.getEditor();
+    if (quillRef != null) this.quillRef = quillRef;
+  }
+
   // handleChangeTitle(value) {
   //   this.setState({ title: value });
   //   console.log(this.state.title);
   // }
+
+  componentDidMount(){
+    this.attachQuillRefs();
+  }
 
   handleSubmit(event) {
     const dailyDetail = this.state.text;
@@ -38,11 +58,8 @@ class TeacherAddDaily extends React.Component {
 
     event.preventDefault();
 
-    //CHANGE UI TO GET THESE AS INPUT
-    // let title = "dailyTitle";
-    // let user = "sullivana";
-    // let className = 1;
-    postDaily(dailyDetail, title, user, classRoom);
+    postDaily(dailyDetail, title, user, classRoom, this.setState);
+
   }
 
   render() {
@@ -81,7 +98,9 @@ class TeacherAddDaily extends React.Component {
           <br />
 
           <ReactQuill
-            style={{
+            ref={(el) => { this.reactQuillRef = el }}
+            name = 'editor'
+              style={{
               theme: "snow",
               marginLeft: "20%",
               marginButtom: "20%",
@@ -91,7 +110,7 @@ class TeacherAddDaily extends React.Component {
             theme="snow"
             value={this.state.text}
             onChange={this.handleChange}
-          ></ReactQuill>
+          ></ReactQuill>; 
         </div>
       </Box>
     );
