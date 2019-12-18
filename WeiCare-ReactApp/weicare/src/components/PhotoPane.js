@@ -1,5 +1,6 @@
 import React from "react";
 import ImageGallery from "react-image-gallery";
+//import EddyAndMoose from '../img/EddyAndMoose.jpeg'
 
 
 class PhotoPane extends React.Component {
