@@ -43,13 +43,15 @@ const useStyles = makeStyles(theme => ({
     backgroundColor: theme.palette.background.paper,
     display: "flex",
     height: 224,
-    marginLeft: "20%",
+    width: '90%',
+    marginLeft: "5%",
     marginTop: "10%",
     
     
   },
   tabs: {
-    borderRight: `1px solid ${theme.palette.divider}`
+    borderRight: `1px solid ${theme.palette.divider}`,
+    minWidth: 165,
   }
 }));
 
