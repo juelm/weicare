@@ -8,7 +8,6 @@ import About from "./pages/About";
 import Contact from "./pages/Contact";
 import Login from "./pages/Login";
 import Logout from "./pages/Logout";
-import TeacherPage from "./pages/teacherPage/TeacherPage";
 import TeacherViewDaily from "./pages/teacherPage/TeacherViewDaily";
 import TeacherAddDaily from "./pages/teacherPage/TeacherAddDaily";
 import TeacherDashboard from "./pages/teacherPage/TeacherDashboard"; 
