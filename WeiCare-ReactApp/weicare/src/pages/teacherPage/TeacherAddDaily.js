@@ -61,75 +61,24 @@ class TeacherAddDaily extends React.Component {
     event.preventDefault();
 
     if((classRoom == "1")|| (classRoom == "2") && (dailyDetail.Length > 0)){
-       postDaily(dailyDetail, title, user, classRoom);
-       alert("Success!"); 
+      postDaily(dailyDetail, title, user, classRoom, this.setState);
     }
     else{
       alert("Daily detail can't be empty/ Class Room code has to be valide!");
     }
     
-    postDaily(dailyDetail, title, user, classRoom, this.setState);
+
 
   }
 
   render() {
     return (
-      <div>
-        <Box mx="auto" bgcolor="background.paper" pb={6} pt={10}>
-          <div
-            style={{
-              marginButtom: "20%"
-            }}
-          >
-          <h1 style={{textAlign: "center"}}>Add Daily</h1>
-            <form action="">
-              <label style={{ marginLeft: "20%" }}>
-                Title:
-                <input
-                  type="text"
-                  value={this.state.title}
-                  onChange={this.handleChangeTitle}
-                />
-              </label>
-              <label style={{ marginLeft: "20%" }}>
-                Class Room:
-                <input
-                  type="text"
-                  value={this.state.classRoom}
-                  onChange={this.handleChangeClassName}
-                />
-              </label>
-            </form>
-            <br />
-
-            <ReactQuill
-              style={{
-                theme: "snow",
-                marginLeft: "20%",
-                marginButtom: "20%",
-                width: "60%",
-                height: 600
-              }}
-              theme="snow"
-              value={this.state.text}
-              onChange={this.handleChange}
-            ></ReactQuill>
-          </div>
-        </Box>
-        <Button
-          variant="contained"
-          color="primary"
+      <Box mx="auto" bgcolor="background.paper" pb={10}>
+        <div
           style={{
-            display: "block",
-            marginLeft: "45%",
-
+            marginButtom: "20%"
           }}
-          onClick={this.handleSubmit}
         >
-          Submit
-        </Button>
-      </div>
-
           <button
             style={{ display: "block", marginLeft: "20%", color: "blue" }}
             onClick={this.handleSubmit}
@@ -156,7 +105,6 @@ class TeacherAddDaily extends React.Component {
             </label>
           </form>
           <br />
-
           <ReactQuill
             ref={(el) => { this.reactQuillRef = el }}
             name = 'editor'
