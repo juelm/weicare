@@ -24,8 +24,8 @@ const useStyles = makeStyles(theme => ({
 function Contact(props) {
   const classes = useStyles();
   const mapStyle = {
-    height: "400px",
-    width: "400px"
+    height: "370px",
+    width: "370px"
   };
 
   return (

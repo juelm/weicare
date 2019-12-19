@@ -66,8 +66,6 @@ class TeacherAddDaily extends React.Component {
     else{
       alert("Daily detail can't be empty/ Class Room code has to be valide!");
     }
-    
-
 
   }
 
