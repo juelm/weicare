@@ -81,7 +81,7 @@ function ViewDaily() {
     for (let i = 0; i < daylies.length; i++) {
       tabContainer.push(buildTab(i));
     }
-    return tabContainer;
+    return tabContainer.reverse();
   }
 
   function buildTabPanel(index) {
@@ -98,7 +98,7 @@ function ViewDaily() {
     for (let i = 0; i < daylies.length; i++) {
       tabContainer.push(buildTabPanel(i));
     }
-    return tabContainer;
+    return tabContainer.reverse();
   }
 
   return (
