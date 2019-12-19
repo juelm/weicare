@@ -10,7 +10,7 @@ const useStyles = makeStyles(theme => ({
   root: {
     width: "90%",
     marginLeft: "10%",
-    marginTop: "10%",
+    marginTop: "5%",
     marginBottom: "5%"
   },
   paper: {

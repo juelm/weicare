@@ -6,7 +6,7 @@ class About extends Component {
   render() {
 
     return (
-      <Paper style={{ width: "90%", marginLeft: "5%", marginTop: "10%", padding:20 }}>
+      <Paper style={{ width: "90%", marginLeft: "5%", marginTop: "5%", padding:20 }}>
         <div>
           <h3>Enriched programs:</h3>
           <ul>

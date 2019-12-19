@@ -15,16 +15,9 @@ function ParentDashBoard() {
   }
 
   return (
-    <div
-      style={{ width: "90%"}}
-    >
+    <div>
       <Paper
-        style={{
-          width: "90%",
-          marginLeft: "5%",
-          marginTop: "10%",
-          padding: 20
-        }}
+        style={{ width: "90%", marginLeft: "5%", marginTop: "5%", padding: 20 }}
       >
         <h3>Teacher Info: </h3>
         {classInfo.length ? (
