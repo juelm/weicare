@@ -220,22 +220,10 @@ export default function TeacherNavBar() {
             "Dashboard",
             "View Daily",
             "Add Daily",
-            "View Photo",
-            "Add Photo"
+            "View Photo"
           ].map((text, index) =>
             setRouteForNavButtons(text, handleDrawerClose)
           )}
-        </List>
-        <Divider />
-        <List>
-          {["Contact Us", "Setting"].map((text, index) => (
-            <ListItem button key={text}>
-              <ListItemIcon>
-                {index % 2 === 0 ? <ContactSupportIcon /> : <SettingsIcon />}
-              </ListItemIcon>
-              <ListItemText primary={text} />
-            </ListItem>
-          ))}
         </List>
       </Drawer>
       <main

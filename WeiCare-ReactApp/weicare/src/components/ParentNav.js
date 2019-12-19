@@ -210,17 +210,6 @@ export default function ParentNavBar() {
             setRouteForNavButtons(text, handleDrawerClose)
           )}
         </List>
-        <Divider />
-        <List>
-          {["Contact Us", "Setting"].map((text, index) => (
-            <ListItem button key={text}>
-              <ListItemIcon>
-                {index % 2 === 0 ? <ContactSupportIcon /> : <SettingsIcon />}
-              </ListItemIcon>
-              <ListItemText primary={text} />
-            </ListItem>
-          ))}
-        </List>
       </Drawer>
       <main
         className={clsx(classes.content, {
