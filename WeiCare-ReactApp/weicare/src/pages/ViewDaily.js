@@ -46,7 +46,6 @@ const useStyles = makeStyles(theme => ({
     width: '90%',
     marginLeft: "5%",
     marginTop: "5%",
-
   },
   tabs: {
     borderRight: `1px solid ${theme.palette.divider}`,
@@ -68,7 +67,7 @@ function ViewDaily() {
   useEffect(() => {
     fetchAllDailies(setDailies, setCurrent, currentUser, authTokens);
   }, []);
-  
+
   function buildTab(index) {
     let date = new Date(daylies[index].DailyDate)
 
