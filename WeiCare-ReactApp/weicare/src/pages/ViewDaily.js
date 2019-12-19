@@ -89,7 +89,7 @@ function ViewDaily() {
     return (
       <TabPanel value={value} index={index}>
         <h1>{daylies[index].Title}</h1>
-        <p>{daylies[index].DailyText}</p>
+        <p dangerouslySetInnerHTML = {{__html: daylies[index].DailyText}} />
       </TabPanel>
     );
   }
