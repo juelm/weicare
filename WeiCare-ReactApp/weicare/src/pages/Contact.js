@@ -1,5 +1,5 @@
 import React from 'react';
-import Paper from '@material-ui/core/paper'; 
+import Paper from '@material-ui/core/paper';
 import Grid from '@material-ui/core/Grid';
 import { Map, GoogleApiWrapper, Marker } from 'google-maps-react';
 import apiKey from "../mapApiKey";
@@ -8,15 +8,15 @@ import { makeStyles } from "@material-ui/core/styles";
 
 const useStyles = makeStyles(theme => ({
   root: {
-    flexGrow: 1,
-    marginLeft: "20%", 
-    marginTop:"5%",
-    marginBottom:"5%"
+    width: "90%",
+    marginLeft: "10%",
+    marginTop: "5%",
+    marginBottom: "5%"
   },
   paper: {
     padding: theme.spacing(2),
     color: theme.palette.text.secondary,
-    height: "350px",
+    height: "400px",
     width: "400px"
   }
 }));
@@ -24,13 +24,26 @@ const useStyles = makeStyles(theme => ({
 function Contact(props) {
   const classes = useStyles();
   const mapStyle = {
-    height: "350px",
-    width: "400px"
+    height: "370px",
+    width: "370px"
   };
 
   return (
     <div className={classes.root}>
       <Grid container spacing={20}>
+        <Grid item xs>
+          <Paper className={classes.paper}>
+            <div>
+              <h2>Little School of Big Discoveries</h2>
+              <h4>Our Location</h4>
+              <p>2140 Lucien-Thimens, St Laurent, H4R 1L1</p>
+              <br />
+              <p>Tel: 514-303-8949</p>
+              <p>Email:pegdgarderie2140@gmail.com</p>
+              <p>Facebook Page: <a href="https://www.facebook.com/ptitecolemtl">www.facebook.com/ptitecolemtl</a></p>
+            </div>
+          </Paper>
+        </Grid>
         <Grid item xs>
           <Paper className={classes.paper}>
             <Map
@@ -42,23 +55,10 @@ function Contact(props) {
               <Marker position={{ lat: 45.50921, lng: -73.69464 }} />
             </Map>
           </Paper>
-        </Grid> 
-        <Grid item xs>
-          <Paper className={classes.paper}>
-            <div>
-              <h2>Little School of Big Discoveries</h2>
-              <h4>Our Location</h4>
-              <p>2140 Lucien-Thimens, St Laurent, H4R 1L1</p>
-              <br />
-              <p>Tel: 514-303-8949</p>
-              <p>Email:pegdgarderie2140@gmail.com</p>
-              <p>Facebook Page: www.facebook.com/ptitecolemtl</p>
-            </div>
-          </Paper>
-        </Grid> 
+        </Grid>
       </Grid>
-      <Grid container>  
-      
+      <Grid container>
+
       </Grid>
     </div>
   );
@@ -67,5 +67,5 @@ function Contact(props) {
 
 export default GoogleApiWrapper({
   apiKey: apiKey
-}) (Contact) ;
+})(Contact);
 

@@ -4,7 +4,7 @@ import PhotoPane from '../components/PhotoPane'
 function paneStyle(){
     return {
         background:"white",
-        margin: '175px 20% 0px 20%',
+        margin: '5% 20% 0px 20%',
         width:'60%'
     }
 }

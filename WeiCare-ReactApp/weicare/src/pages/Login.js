@@ -1,8 +1,13 @@
 import React, { useState } from "react";
 import { Redirect } from "react-router-dom";
-import { Card, Form, Input, Button, Error, } from '../components/AuthForm';
 import { useAuth } from "../context/auth";
 import ValidateCredentials from "../modules/validateUser";
+import TextField from "@material-ui/core/TextField";
+import FormControl from "@material-ui/core/FormControl";
+import Button from "@material-ui/core/Button";
+import Paper from "@material-ui/core/Paper";
+import InputLabel from "@material-ui/core/InputLabel";
+
 
 function Login(props) {
     const [isLoggedIn, setLoggedIn] = useState(false);
@@ -14,8 +19,8 @@ function Login(props) {
 
     function decideCorrectHomepage() {
         if (isLoggedIn) {
-            if (authTokens === "Parent") return "/parent";
-            if (authTokens === "Teacher") return "/teacher";
+            if (authTokens === "Parent") return "/parent/dashboard";
+            if (authTokens === "Teacher") return "/teacher/dashboard";
         } else {
             return "/";
         }
@@ -42,29 +47,44 @@ function Login(props) {
     }
 
     return (
-        <div style={{ margin: '175px 40%' }}>
-            <Card>
-                <Form>
-                    <Input
-                        type="username"
-                        value={userName}
-                        onChange={e => {
-                            setUserName(e.target.value);
-                        }}
-                        placeholder="username" />
-                    <Input
-                        type="password"
-                        value={password}
-                        onChange={e => {
-                            setPassword(e.target.value);
-                        }}
-                        placeholder="password"
-                    />
-                    <Button onClick={handleClick}>Sign In</Button>
-                </Form>
-                {isError && <Error>The username or password provided were incorrect!</Error>}
-            </Card>
+      <Paper
+        style={{
+          width: "20%",
+          marginLeft: "40%",
+          marginTop: "10%",
+          padding: 20
+        }}
+      >
+        <div style={{ textAlign: "center" }}>
+         <FormControl>
+            <TextField
+              type="username"
+              value={userName}
+              onChange={e => {
+                setUserName(e.target.value);
+              }}
+              placeholder="Username"
+            />
+            <div><br /></div>
+
+            <TextField
+              type="password"
+              value={password}
+              onChange={e => {
+                setPassword(e.target.value);
+              }}
+              placeholder="Password"
+            />
+            <div><br /></div>
+            <Button variant="contained" color="primary" onClick={handleClick}>
+              Sign In
+            </Button>
+          </FormControl>
+          {isError && (
+            <p>The username or password provided were incorrect!</p>
+          )}
         </div>
+      </Paper>
     );
 }
 

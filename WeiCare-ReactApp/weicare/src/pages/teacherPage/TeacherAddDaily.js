@@ -69,19 +69,9 @@ class TeacherAddDaily extends React.Component {
 
   render() {
     return (
-      <Box mx="auto" bgcolor="background.paper" pb={10}>
-        <div
-          style={{
-            marginButtom: "20%"
-          }}
-        >
-          <button
-            style={{ display: "block", marginLeft: "20%", color: "blue" }}
-            onClick={this.handleSubmit}
-          >
-            Submit
-          </button>
-          <br />
+      <Box mx="auto" bgcolor="background.paper" pb={20} pt={5}>
+        <div>
+          <h1 style={{ textAlign: "center" }}>Add Daily</h1>
           <form action="">
             <label style={{ marginLeft: "20%" }}>
               Title:
@@ -102,9 +92,11 @@ class TeacherAddDaily extends React.Component {
           </form>
           <br />
           <ReactQuill
-            ref={(el) => { this.reactQuillRef = el }}
-            name = 'editor'
-              style={{
+            ref={el => {
+              this.reactQuillRef = el;
+            }}
+            name="editor"
+            style={{
               theme: "snow",
               marginLeft: "20%",
               marginButtom: "20%",
@@ -114,8 +106,21 @@ class TeacherAddDaily extends React.Component {
             theme="snow"
             value={this.state.text}
             onChange={this.handleChange}
-          ></ReactQuill>; 
+          ></ReactQuill>
+          ;
         </div>
+        <Button
+          style={{
+            display: "block",
+            marginTop: "3%",
+            marginLeft: "45%"
+          }}
+          onClick={this.handleSubmit}
+          variant="contained"
+          color="primary"
+        >
+          Submit
+        </Button>
       </Box>
     );
   }

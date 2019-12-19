@@ -11,7 +11,7 @@ function TeacherDashBoard() {
   }, []);
 
   return (
-    <div style={{marginLeft: "30%", marginRight:"10%", marginBottom:"5%", marginTop: "10%"}}>
+    <div style={{marginLeft: "5%", width: "90%", marginRight:"10%", marginBottom:"5%", marginTop: "5%"}}>
       <Paper style={{paddingLeft:"10%", paddingTop:"2%", paddingBottom:"5%"}}>
         <h3>Students: </h3>
         {roster.length ? (

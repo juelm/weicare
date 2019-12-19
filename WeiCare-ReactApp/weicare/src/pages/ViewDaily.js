@@ -45,9 +45,7 @@ const useStyles = makeStyles(theme => ({
     display: "flex",
     width: '90%',
     marginLeft: "5%",
-    marginTop: "10%",
-
-
+    marginTop: "5%",
   },
   tabs: {
     borderRight: `1px solid ${theme.palette.divider}`,
@@ -90,7 +88,7 @@ function ViewDaily() {
     return (
       <TabPanel value={value} index={index}>
         <h1>{daylies[index].Title}</h1>
-        <p>{daylies[index].DailyText}</p>
+        <p dangerouslySetInnerHTML = {{__html: daylies[index].DailyText}} />
       </TabPanel>
     );
   }
@@ -121,40 +119,3 @@ function ViewDaily() {
 }
 
 export default ViewDaily;
-
-// <div id="ViewDaily" style={outerBoxStyle()}>
-//   <Grid container spacing={20}>
-//     <Grid item xs>
-//       <Paper style={titleBoxStyle()}>
-//         <div id="titleContainer" style={{ leftMargin: "30px" }}>
-//           {daylies.length ? (
-//             daylies.map(daylies => (
-//               <div onClick={handleClick}>
-//                 <h3 id={daylies.Title} style={{ textAlign: "center" }}>
-//                   {daylies.Title}
-//                 </h3>
-//                 {/* {daylies.DailyText} */}
-//               </div>
-//             ))
-//           ) : (
-//             <h3>loading</h3>
-//           )}
-//         </div>
-//       </Paper>
-//     </Grid>
-//     <Grid item xs>
-//       <Paper style={dailyBoxStyle()}>
-//         <div id="dailyContainer" style={{ leftMargin: "30px" }}>
-//           {current ? (
-//             <div style={{ textAlign: "center" }}>
-//               {console.log(current.Text)}
-//               <h1>{current.Title}</h1>
-//               <div dangerouslySetInnerHTML = {{__html: current.DailyText}}></div>
-//             </div>
-//           ) : (
-//             <h1>Dailies</h1>
-//           )}
-//         </div>
-//       </Paper>
-//     </Grid>
-//   </Grid>
