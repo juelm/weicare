@@ -14,8 +14,8 @@ var deleteDaily = require('./routes/deleteDaily');
 var classRoster = require('./routes/classRoster');
 var parentDashInfo = require('./routes/parentDashInfo.js')
 var validateCredentialsRouter = require('./routes/validateCredentials');
-
 var validateCredentialsRouter = require('./routes/validateCredentials');
+var updateUserRouter = require('./routes/updateUser');
 
 
 var app = express();
@@ -48,7 +48,8 @@ app.use("/api/deleteDaily", deleteDaily);
 app.use('/api/classRoster', classRoster); 
 app.use('/api/parentDashInfo', parentDashInfo); 
 
-app.use('/api/validateCredentials', validateCredentialsRouter)
+app.use('/api/validateCredentials', validateCredentialsRouter);
+app.use('/api/updateUser', updateUserRouter);
 
 
 // catch 404 and forward to error handler

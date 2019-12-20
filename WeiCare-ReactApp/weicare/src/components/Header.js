@@ -3,6 +3,7 @@ import {AppBar, Toolbar, Grid, Typography, Button} from "@material-ui/core";
 import { Link } from "react-router-dom";
 import { useAuth } from "../context/auth"
 import {linkStyle} from "../pages/styles";
+import AccountBoxIcon from '@material-ui/icons/AccountBox';
 
 
 export default function Header() {
