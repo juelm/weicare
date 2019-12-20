@@ -5,17 +5,16 @@ var db = require("../db");
 
 router.post("/", function(req, res, next) {
   let selectString;
-  console.log("HEEEEELLLOOOOO!");
   console.log(req.body);
   if (req.body.userType === "Parent") {
-    selectString = `SELECT Title, DailyText, DailyDate
+    selectString = `SELECT Title, DailyText, DailyDate, DailyID
 						FROM DAYLIES JOIN CLASSES Using(ClassID) 
 						JOIN STUDENTS Using(ClassID) 
 						JOIN STUDENTPARENT Using(StudentID)
 						JOIN PARENTS Using(ParentID) 
 						WHERE UserName = '${req.body.user}'`;
   } else if (req.body.userType === "Teacher") {
-    selectString = `SELECT Title, DailyText, DailyDate
+    selectString = `SELECT Title, DailyText, DailyDate, DailyID
 						FROM DAYLIES JOIN CLASSES Using(ClassID) 
 						JOIN TEACHERS Using(TeacherID) 
 						WHERE UserName = '${req.body.user}'`;
