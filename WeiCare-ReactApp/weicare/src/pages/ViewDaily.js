@@ -7,6 +7,10 @@ import Tabs from "@material-ui/core/Tabs";
 import Tab from "@material-ui/core/Tab";
 import Typography from "@material-ui/core/Typography";
 import Box from "@material-ui/core/Box";
+import DeleteForeverIcon from '@material-ui/icons/DeleteForever';
+import Icon from '@material-ui/core/Icon';
+import SvgIcon from '@material-ui/core/SvgIcon';
+import deleteDaily from '../modules/deleteDailyMod'
 
 function TabPanel(props) {
   const { children, value, index, ...other } = props;
@@ -63,6 +67,7 @@ function ViewDaily() {
   const handleChange = (event, newValue) => {
     setValue(newValue);
   };
+  const [dailyID, setDailyID] = useState(0)
 
   useEffect(() => {
     fetchAllDailies(setDailies, setCurrent, currentUser, authTokens);
@@ -101,6 +106,17 @@ function ViewDaily() {
     return tabContainer.reverse();
   }
 
+  function deleteDailyClick(event) {
+    deleteDaily(daylies[value].DailyID);
+    console.log(daylies[value].DailyID);
+  }
+  
+  let garbageIcon;
+  if(authTokens === 'Teacher') {
+    garbageIcon = <DeleteForeverIcon onClick = {deleteDailyClick} style = {{alignSelf: 'stretch'}}/>;
+  }
+
+
   return (
     <div className={classes.root}>
       <Tabs
@@ -113,6 +129,7 @@ function ViewDaily() {
       >
         {createTabList()}
       </Tabs>
+      {garbageIcon}
       {createTabPanelList()}
     </div>
   );

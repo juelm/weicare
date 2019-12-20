@@ -10,7 +10,7 @@ var usersRouter = require('./routes/users');
 var getDailiesRouter = require('./routes/getDailies');
 var postDailiesRouter = require('./routes/postDailies');
 var fetchAllDailies = require('./routes/fetchAllDailies');
-
+var deleteDaily = require('./routes/deleteDaily');
 var classRoster = require('./routes/classRoster');
 var parentDashInfo = require('./routes/parentDashInfo.js')
 var validateCredentialsRouter = require('./routes/validateCredentials');
@@ -43,6 +43,7 @@ app.use('/users', usersRouter);
 app.use('/api/getDailies', getDailiesRouter);
 app.use('/api/postDailies', postDailiesRouter);
 app.use("/api/fetchAllDailies", fetchAllDailies); 
+app.use("/api/deleteDaily", deleteDaily);
 
 app.use('/api/classRoster', classRoster); 
 app.use('/api/parentDashInfo', parentDashInfo); 

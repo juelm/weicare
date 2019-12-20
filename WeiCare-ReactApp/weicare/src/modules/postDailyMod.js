@@ -24,6 +24,4 @@ export default async function postDaily(dailyText, dailyTitle, userName, classNa
     }
     
     alert(resData);
-
-    return await res;
 }
